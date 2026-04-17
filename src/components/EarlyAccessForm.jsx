@@ -35,7 +35,7 @@ export default function EarlyAccessForm() {
     const formData = new FormData(e.target);
 
     try {
-      await fetch('https://formsubmit.co/ajax/your_email@example.com', {
+      await fetch('https://formsubmit.co/ajax/osandam23@gmail.com', {
         method: 'POST',
         body: formData,
       });
@@ -79,7 +79,34 @@ export default function EarlyAccessForm() {
       sub: 'Submitting...',
       subJoin: 'Submit & Join Early Access',
       thx: 'Thank you for contributing',
-      thxDesc: 'Your input is helping shape the first release of Buyzonlabs. We\'ll be in touch soon.'
+      thxDesc: 'Your input is helping shape the first release of Buyzonlabs. We\'ll be in touch soon.',
+      roles: ['Select an option', 'Individual investor', 'Professional investor', 'Market researcher / analyst', 'Student / academic', 'Business decision maker', 'Other'],
+      levels: ['Beginner', 'Intermediate', 'Advanced', 'Professional'],
+      markets: ['Colombo Stock Exchange (CSE)', 'US markets', 'Crypto markets', 'Forex', 'Other'],
+      frustrations: [
+        'Reading annual reports manually',
+        'Extracting financial metrics',
+        'Comparing companies',
+        'Tracking trends over time',
+        'Organizing research notes',
+        'Turning research into decisions'
+      ],
+      capabilities: [
+        'Automatic annual report analysis',
+        'Instant company summaries',
+        'Financial trend detection',
+        'Cross-company comparison',
+        'Research organization workspace',
+        'Decision-support insights'
+      ],
+      frequencies: ['Daily', 'Weekly', 'Occasionally', 'Only when researching a company'],
+      purposes: [
+        'Investment decisions',
+        'Academic research',
+        'Market monitoring',
+        'Business strategy',
+        'Learning and education'
+      ]
     },
     si: {
       title: 'Buyzonlabs හැඩගැස්වීමට උදවු වන්න',
@@ -106,7 +133,34 @@ export default function EarlyAccessForm() {
       sub: 'ඉදිරිපත් කරමින් පවතී...',
       subJoin: 'ඉදිරිපත් කර මූලික ප්‍රවේශයට එක්වන්න',
       thx: 'ඔබගේ දායකත්වයට ස්තූතියි',
-      thxDesc: 'ඔබගේ ආදානය Buyzonlabs හි පළමු නිකුතුව හැඩගස්වයි. අපි ඉක්මනින් සම්බන්ධ වන්නෙමු.'
+      thxDesc: 'ඔබගේ ආදානය Buyzonlabs හි පළමු නිකුතුව හැඩගස්වයි. අපි ඉක්මනින් සම්බන්ධ වන්නෙමු.',
+      roles: ['විකල්පයක් තෝරන්න', 'තනි ආයෝජකයෙකු', 'වෘත්තීය ආයෝජකයෙකු', 'වෙළඳපොළ පර්යේෂක/විශ්ලේෂක', 'ශිෂ්‍ය / ශාස්ත්‍රීය', 'ව්‍යාපාරික තීරණ ගන්නා', 'වෙනත්'],
+      levels: ['ආධුනික', 'මධ්‍යම', 'උසස්', 'වෘත්තීය'],
+      markets: ['කොළඹ කොටස් හුවමාරුව (CSE)', 'එක්සත් ජනපද වෙළඳපල', 'ක්‍රිප්ටෝ වෙළඳපල', 'විදේශ විනිමය (Forex)', 'වෙනත්'],
+      frustrations: [
+        'වාර්ෂික වාර්තා කියවීම',
+        'මූල්‍ය දත්ත උකහා ගැනීම',
+        'සමාගම් සංසන්දනය කිරීම',
+        'කාලයත් සමඟ ප්‍රවණතා නිරීක්ෂණය කිරීම',
+        'පර්යේෂණ සටහන් සංවිධානය කිරීම',
+        'පර්යේෂණ තීරණ බවට පත් කිරීම'
+      ],
+      capabilities: [
+        'ස්වයංක්‍රීය වාර්ෂික වාර්තා විශ්ලේෂණය',
+        'ක්ෂණික සමාගම් සාරාංශ',
+        'මූල්‍ය ප්‍රවණතා හඳුනාගැනීම',
+        'සමාගම් හරහා සංසන්දනය',
+        'පර්යේෂණ සංවිධාන වැඩබිම',
+        'තීරණ ආධාරක අවබෝධය'
+      ],
+      frequencies: ['දිනපතා', 'සතිපතා', 'ඉඳහිට', 'සමාගමක් ගැන පර්යේෂණ කරන විට පමණක්'],
+      purposes: [
+        'ආයෝජන තීරණ',
+        'ශාස්ත්‍රීය පර්යේෂණ',
+        'වෙළඳපොළ නිරීක්ෂණය',
+        'ව්‍යාපාරික උපායමාර්ග',
+        'ඉගෙනීම සහ අධ්‍යාපනය'
+      ]
     }
   };
 
@@ -133,24 +187,20 @@ export default function EarlyAccessForm() {
 
             {/* Section 1 — User context */}
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Primary role <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qRole} <span className="text-red-500">*</span></label>
               <select name="Role" required className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none">
-                <option value="">Select an option</option>
-                <option value="Individual investor">Individual investor</option>
-                <option value="Professional investor">Professional investor</option>
-                <option value="Market researcher / analyst">Market researcher / analyst</option>
-                <option value="Student / academic">Student / academic</option>
-                <option value="Business decision maker">Business decision maker</option>
-                <option value="Other">Other</option>
+                {t.roles.map((role, i) => (
+                  <option key={i} value={i === 0 ? "" : content.en.roles[i]}>{role}</option>
+                ))}
               </select>
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Experience level <span className="text-red-500">*</span></label>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qExp} <span className="text-red-500">*</span></label>
               <div className="flex flex-wrap gap-4">
-                {['Beginner', 'Intermediate', 'Advanced', 'Professional'].map(level => (
+                {t.levels.map((level, i) => (
                   <label key={level} className="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                    <input type="radio" name="Experience" value={level} required className="text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <input type="radio" name="Experience" value={content.en.levels[i]} required className="text-bzl-gold focus:ring-bzl-gold border-gray-300" />
                     <span className="text-gray-600 dark:text-gray-300">{level}</span>
                   </label>
                 ))}
@@ -159,11 +209,11 @@ export default function EarlyAccessForm() {
 
             {/* Section 2 — Current workflow */}
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Markets followed</label>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qMarkets}</label>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm font-medium">
-                {['Colombo Stock Exchange (CSE)', 'US markets', 'Crypto markets', 'Forex', 'Other'].map(market => (
+                {t.markets.map((market, i) => (
                   <label key={market} className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" name={`Market: ${market}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <input type="checkbox" name={`Market: ${content.en.markets[i]}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
                     <span className="text-gray-600 dark:text-gray-300">{market}</span>
                   </label>
                 ))}
@@ -171,34 +221,27 @@ export default function EarlyAccessForm() {
             </div>
 
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Current research workflow</label>
-              <textarea name="Current Workflow" rows="3" placeholder="Describe how you currently research companies or investments from start to decision." className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none resize-none"></textarea>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qCurrentWorkflow}</label>
+              <textarea name="Current Workflow" rows="3" placeholder={t.qCurrentWorkflowP} className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none resize-none"></textarea>
             </div>
 
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Tools currently used</label>
-              <input type="text" name="Tools Used" placeholder="e.g. Spreadsheets, brokerage tools, financial websites, PDFs, research papers" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qTools}</label>
+              <input type="text" name="Tools Used" placeholder={t.qToolsP} className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
             </div>
 
             {/* Section 3 — Pain points (critical) */}
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Biggest challenges</label>
-              <textarea name="Biggest Challenges" rows="3" placeholder="What consumes the most time or effort during financial research?" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none resize-none"></textarea>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qChallenges}</label>
+              <textarea name="Biggest Challenges" rows="3" placeholder={t.qChallengesP} className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none resize-none"></textarea>
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Most frustrating tasks</label>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qFrustration}</label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
-                {[
-                  'Reading annual reports manually',
-                  'Extracting financial metrics',
-                  'Comparing companies',
-                  'Tracking trends over time',
-                  'Organizing research notes',
-                  'Turning research into decisions'
-                ].map(task => (
+                {t.frustrations.map((task, i) => (
                   <label key={task} className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" name={`Frustrating Task: ${task}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <input type="checkbox" name={`Frustrating Task: ${content.en.frustrations[i]}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
                     <span className="text-gray-600 dark:text-gray-300">{task}</span>
                   </label>
                 ))}
@@ -207,18 +250,11 @@ export default function EarlyAccessForm() {
 
             {/* Section 4 — Desired capabilities */}
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Most valuable capabilities</label>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qCaps}</label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
-                {[
-                  'Automatic annual report analysis',
-                  'Instant company summaries',
-                  'Financial trend detection',
-                  'Cross-company comparison',
-                  'Research organization workspace',
-                  'Decision-support insights'
-                ].map(cap => (
+                {t.capabilities.map((cap, i) => (
                   <label key={cap} className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" name={`Capability: ${cap}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <input type="checkbox" name={`Capability: ${content.en.capabilities[i]}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
                     <span className="text-gray-600 dark:text-gray-300">{cap}</span>
                   </label>
                 ))}
@@ -226,17 +262,17 @@ export default function EarlyAccessForm() {
             </div>
 
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Primary outcome goal</label>
-              <input type="text" name="Primary Goal" placeholder="What result would make a tool like this essential for you?" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qGoal}</label>
+              <input type="text" name="Primary Goal" placeholder={t.qGoalP} className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
             </div>
 
             {/* Section 5 — Usage intent */}
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Intended usage frequency</label>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qFreq}</label>
               <div className="flex flex-wrap gap-4">
-                {['Daily', 'Weekly', 'Occasionally', 'Only when researching a company'].map(freq => (
+                {t.frequencies.map((freq, i) => (
                   <label key={freq} className="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                    <input type="radio" name="Usage Frequency" value={freq} className="text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <input type="radio" name="Usage Frequency" value={content.en.frequencies[i]} className="text-bzl-gold focus:ring-bzl-gold border-gray-300" />
                     <span className="text-gray-600 dark:text-gray-300">{freq}</span>
                   </label>
                 ))}
@@ -244,17 +280,11 @@ export default function EarlyAccessForm() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Usage purpose</label>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qPur}</label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
-                {[
-                  'Investment decisions',
-                  'Academic research',
-                  'Market monitoring',
-                  'Business strategy',
-                  'Learning and education'
-                ].map(purpose => (
+                {t.purposes.map((purpose, i) => (
                   <label key={purpose} className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" name={`Purpose: ${purpose}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <input type="checkbox" name={`Purpose: ${content.en.purposes[i]}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
                     <span className="text-gray-600 dark:text-gray-300">{purpose}</span>
                   </label>
                 ))}
@@ -264,10 +294,10 @@ export default function EarlyAccessForm() {
             {/* Section 6 — Optional early access */}
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-bzl-blue dark:text-white">
-                Join early access updates <span className="text-gray-400 font-normal text-xs ml-2">(Optional)</span>
+                {t.qJoin} <span className="text-gray-400 font-normal text-xs ml-2">(Optional)</span>
               </label>
-              <input type="email" name="email" placeholder="you@company.com" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Only used to notify when the platform launches.</p>
+              <input type="email" name="email" placeholder={t.qEmailP} className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{t.s1}</p>
             </div>
 
             <div className="pt-6 border-t border-gray-100 dark:border-[#041a4a] flex flex-col items-center">
@@ -276,10 +306,10 @@ export default function EarlyAccessForm() {
                 disabled={status === 'submitting'}
                 className="w-full sm:w-auto px-10 py-4 bg-bzl-blue dark:bg-bzl-gold text-white dark:text-bzl-blue rounded-xl hover:bg-bzl-blue/90 dark:hover:bg-bzl-gold/90 transition-all font-bold shadow-md hover:shadow-xl disabled:opacity-50"
               >
-                {status === 'submitting' ? 'Submitting...' : 'Submit & Join Early Access'}
+                {status === 'submitting' ? t.sub : t.subJoin}
               </button>
               <p className="mt-4 text-xs max-w-sm text-center font-semibold text-gray-400">
-                This survey collects product research insights only. No personal or financial data is requested.
+                {t.s2}
               </p>
             </div>
           </form>
@@ -292,9 +322,9 @@ export default function EarlyAccessForm() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
             </svg>
           </div>
-          <h3 className="text-3xl font-bold text-bzl-blue dark:text-white mb-4">Thank you for contributing</h3>
+          <h3 className="text-3xl font-bold text-bzl-blue dark:text-white mb-4">{t.thx}</h3>
           <p className="text-gray-500 dark:text-gray-400 font-medium text-lg max-w-md mx-auto">
-            Your input is helping shape the first release of Buyzonlabs . We'll be in touch soon.
+            {t.thxDesc}
           </p>
         </div>
 
