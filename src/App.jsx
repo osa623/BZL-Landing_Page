@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Problem from './components/Problem';
 import Stats from './components/Stats';
 import Purpose from './components/Purpose';
 import Features from './components/Features';
@@ -10,12 +11,14 @@ import Vision from './components/Vision';
 import FAQ from './components/FAQ';
 import EarlyAccessForm from './components/EarlyAccessForm';
 import Footer from './components/Footer';
+import Widgets from './components/Widgets';
 import { LanguageProvider } from './LanguageContext';
 
 function LandingPage() {
   return (
     <main>
       <Hero />
+      <Problem />
       <Stats />
       <Purpose />
       <Features />
@@ -37,6 +40,7 @@ function App() {
           <Route path="/early-access" element={<EarlyAccessForm />} />
         </Routes>
         <Footer />
+        <Widgets />
       </div>
     </LanguageProvider>
   );

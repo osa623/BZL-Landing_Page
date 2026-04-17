@@ -32,7 +32,8 @@ export default function FAQ() {
 
   const content = {
     en: {
-      title: 'Frequently Clarified',
+      subtitle: 'FAQ',
+      title: 'Common Questions',
       faqs: [
         { q: 'Is Buyzonlabs live yet?', a: 'We have completed the core extraction engine (Stage 1) and are actively developing the remainder of the platform. We are collecting early-access registrations right now.' },
         { q: 'Who is the platform best suited for?', a: 'Investors requiring deep insights, students conducting financial research, and businesses needing to map their strategies against complex metrics.' },
@@ -41,7 +42,8 @@ export default function FAQ() {
       ]
     },
     si: {
-      title: 'නිතර අසන ප්‍රශ්න',
+      subtitle: 'නිතර අසන ප්‍රශ්න',
+      title: 'සාමාන්‍ය ප්‍රශ්න',
       faqs: [
         { q: 'Buyzonlabs දැනටමත් භාවිතයට ගත හැකිද?', a: 'අපි දැනට මූලික දත්ත ලබාගැනීමේ පද්ධතිය (අදියර 1) සම්පූර්ණ කර ඇති අතර, වේදිකාවේ ඉතිරි කොටස් සක්‍රීයව සංවර්ධනය කරමින් සිටිමු. දැනට අපි මූලික ප්‍රවේශය සඳහා ලියාපදිංචි වීම් එකතු කරමින් සිටිමු.' },
         { q: 'මෙම වේදිකාව වඩාත් සුදුසු වන්නේ කාටද?', a: 'ගැඹුරු අවබෝධයක් අවශ්‍ය ආයෝජකයින්ට, මූල්‍ය පර්යේෂණ කරන සිසුන්ට සහ සංකීර්ණ මිනුම් සමඟ ඔවුන්ගේ උපාය මාර්ග සැලසුම් කිරීමට අවශ්‍ය ව්‍යාපාරිකයින්ට.' },
@@ -51,13 +53,14 @@ export default function FAQ() {
     }
   };
 
-  const { title, faqs } = content[language];
+  const { subtitle, title, faqs } = content[language];
 
   return (
-    <section id="faq" className="py-24 md:py-32 bg-gray-50 dark:bg-[#03143a] px-6 border-y border-gray-100 dark:border-[#041a4a]">
+    <section id="faq" className="py-24 md:py-32 bg-gray-50 dark:bg-[#03143a] px-6 border-y border-gray-100 dark:border-[#041a4a] bg-noise-pattern">
       <div ref={containerRef} className="max-w-3xl mx-auto relative">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-bzl-blue dark:text-white text-center md:text-left flex-1">
+        <div className="flex flex-col items-center mb-12">
+          <p className="text-sm font-bold tracking-widest text-[#00E5FF] uppercase mb-3">{subtitle}</p>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-bzl-blue dark:text-white text-center">
             {title}
           </h2>
         </div>

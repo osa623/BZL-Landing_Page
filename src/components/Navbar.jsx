@@ -1,25 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
-import { Moon, Sun, Globe } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isDark, setIsDark] = useState(false);
-  const { language, toggleLanguage } = useLanguage();
-
-  useEffect(() => {
-    if (document.documentElement.classList.contains('dark')) {
-      setIsDark(true);
-    }
-  }, []);
-
-  const toggleDark = () => {
-    document.documentElement.classList.toggle('dark');
-    setIsDark(prev => !prev);
-  };
+  const { language } = useLanguage();
 
   useEffect(() => {
     gsap.fromTo(
@@ -92,12 +79,6 @@ export default function Navbar() {
           <button onClick={() => scrollTo('faq')} className="hover:text-bzl-blue dark:hover:text-white transition-colors">{t.faq}</button>
         </div>
         <div className="flex items-center gap-3 md:gap-5">
-          <button onClick={toggleLanguage} className="p-2 text-sm font-bold text-gray-500 dark:text-gray-400 hover:text-bzl-blue dark:hover:text-white transition-colors bg-gray-100 dark:bg-white/10 rounded-full flex items-center gap-1">
-            {language === 'en' ? 'SI' : 'EN'}
-          </button>
-          <button onClick={toggleDark} className="p-2 text-gray-500 dark:text-gray-400 hover:text-bzl-blue dark:hover:text-white transition-colors bg-gray-100 dark:bg-white/10 rounded-full">
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
           <Link 
             to="/early-access"
             className="flex items-center justify-center px-4 py-2 md:px-5 md:py-2.5 bg-bzl-blue text-white dark:bg-white dark:text-bzl-blue text-xs md:text-sm font-bold rounded-full hover:opacity-90 transition-opacity shadow-md"

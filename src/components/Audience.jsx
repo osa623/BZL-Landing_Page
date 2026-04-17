@@ -30,21 +30,25 @@ export default function Audience() {
 
   const content = {
     en: {
-      title: 'Who Is This For?',
+      subtitle: 'BUILT FOR',
+      title: 'Who We Are Building For',
+      subheading: 'Tools designed for serious decision makers.',
       audiences: [
-        { title: 'Investors', text: 'Uncover actionable patterns across complex financial disclosures.' },
-        { title: 'Market Researchers', text: 'Extract multi-year intelligence instantly.' },
-        { title: 'Students & Educators', text: 'Learn from structured, deep analytical datasets.' },
-        { title: 'Business Owners', text: 'Benchmark against competitors with unparalleled clarity.' },
+        { title: 'Investors', text: 'Make confident decisions faster with extracted insights.' },
+        { title: 'Market Researchers', text: 'Analyze multi-year intelligence in seconds.' },
+        { title: 'Students & Educators', text: 'Access clean, structured data for academic analysis.' },
+        { title: 'Business Owners', text: 'Benchmark against competitors effortlessly.' },
       ]
     },
     si: {
-      title: 'මෙමඟින් ප්‍රතිලාභ ලබන්නේ කවුරුන්ද?',
+      subtitle: 'කා සඳහාද',
+      title: 'මෙය කා සඳහාද?',
+      subheading: 'බැරෑරුම් තීරණ ගන්නන් සඳහා නිර්මාණය කර ඇති මෙවලම්.',
       audiences: [
-        { title: 'ආයෝජකයින්', text: 'සංකීර්ණ මූල්‍ය වාර්තා හරහා ක්‍රියාකාරී රටා අනාවරණය කරගන්න.' },
-        { title: 'වෙළෙඳපොළ පර්යේෂකයින්', text: 'වසර ගණනාවක තොරතුරු ක්ෂණිකව උකහා ගන්න.' },
-        { title: 'සිසුන් සහ අධ්‍යාපනඥයින්', text: 'ව්‍යුහගත, ගැඹුරු විශ්ලේෂණාත්මක දත්ත සමුදායන්ගෙන් ඉගෙන ගන්න.' },
-        { title: 'ව්‍යාපාරිකයින්', text: 'අසමසම පැහැදිලිකමකින් යුතුව වෙළඳපල තරඟකරුවන් සමඟ සසඳන්න.' },
+        { title: 'ආයෝජකයින්', text: 'උකහා ගත් තොරතුරු සමඟ වේගවත්ව විශ්වාසදායක තීරණ ගන්න.' },
+        { title: 'වෙළෙඳපොළ පර්යේෂකයින්', text: 'තත්පර කිහිපයකින් වසර ගණනාවක තොරතුරු විශ්ලේෂණය කරන්න.' },
+        { title: 'සිසුන් සහ අධ්‍යාපනඥයින්', text: 'ශාස්ත්‍රීය විශ්ලේෂණය සඳහා පිරිසිදු, ව්‍යුහගත දත්ත වෙත ප්‍රවේශ වන්න.' },
+        { title: 'ව්‍යාපාරිකයින්', text: 'වෙහෙසකින් තොරව තරඟකරුවන් සමඟ සසඳන්න.' },
       ]
     }
   };
@@ -52,11 +56,15 @@ export default function Audience() {
   const t = content[language];
 
   return (
-    <section id="audience" className="py-24 md:py-32 bg-white dark:bg-bzl-blue px-6">
+    <section id="audience" className="py-24 md:py-32 bg-white dark:bg-bzl-blue px-6 relative bg-noise-pattern">
       <div ref={containerRef} className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-bzl-blue dark:text-white mb-16 text-center">
-          {t.title}
-        </h2>
+        <div className="text-center mb-16">
+          <p className="text-sm font-bold tracking-widest text-[#00E5FF] uppercase mb-3">{t.subtitle}</p>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-bzl-blue dark:text-white mb-4">
+            {t.title}
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl font-medium">{t.subheading}</p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {t.audiences.map((audience, idx) => (
