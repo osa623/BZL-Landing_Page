@@ -70,88 +70,143 @@ export default function EarlyAccessForm() {
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
 
-            {/* Dropdown */}
+            {/* Section 1 — User context */}
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Which best describes you?</label>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Primary role <span className="text-red-500">*</span></label>
               <select name="Role" required className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none">
                 <option value="">Select an option</option>
-                <option value="Individual Investor">Individual Investor</option>
-                <option value="Institutional Investor">Institutional Investor</option>
-                <option value="Stock Market Researcher">Stock Market Researcher</option>
-                <option value="Undergraduate / Student">Undergraduate / Student</option>
-                <option value="Lecturer / Educator">Lecturer / Educator</option>
-                <option value="Business Owner / Executive">Business Owner / Executive</option>
+                <option value="Individual investor">Individual investor</option>
+                <option value="Professional investor">Professional investor</option>
+                <option value="Market researcher / analyst">Market researcher / analyst</option>
+                <option value="Student / academic">Student / academic</option>
+                <option value="Business decision maker">Business decision maker</option>
                 <option value="Other">Other</option>
               </select>
             </div>
 
-            {/* Radio Group */}
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Experience level</label>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Experience level <span className="text-red-500">*</span></label>
               <div className="flex flex-wrap gap-4">
                 {['Beginner', 'Intermediate', 'Advanced', 'Professional'].map(level => (
                   <label key={level} className="flex items-center gap-2 cursor-pointer text-sm font-medium">
                     <input type="radio" name="Experience" value={level} required className="text-bzl-gold focus:ring-bzl-gold border-gray-300" />
-                    <span className="text-gray-600 dark:text-gray-300 dark:text-gray-400">{level}</span>
+                    <span className="text-gray-600 dark:text-gray-300">{level}</span>
                   </label>
                 ))}
               </div>
             </div>
 
-            {/* Checkbox Group */}
+            {/* Section 2 — Current workflow */}
             <div className="space-y-3">
               <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Markets followed</label>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm font-medium">
-                {['Colombo Stock Exchange (CSE)', 'US Markets', 'Crypto', 'Forex', 'Other'].map(market => (
+                {['Colombo Stock Exchange (CSE)', 'US markets', 'Crypto markets', 'Forex', 'Other'].map(market => (
                   <label key={market} className="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name={`Market: ${market}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
-                    <span className="text-gray-600 dark:text-gray-300 dark:text-gray-400">{market}</span>
+                    <span className="text-gray-600 dark:text-gray-300">{market}</span>
                   </label>
                 ))}
               </div>
             </div>
 
-            {/* Textareas */}
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Current workflow</label>
-              <textarea name="Current Workflow" rows="3" placeholder="How do you currently analyze reports?" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none resize-none"></textarea>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Current research workflow</label>
+              <textarea name="Current Workflow" rows="3" placeholder="Describe how you currently research companies or investments from start to decision." className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none resize-none"></textarea>
             </div>
 
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Biggest pain points</label>
-              <textarea name="Pain Points" rows="3" placeholder="What frustrates you the most?" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none resize-none"></textarea>
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Tools currently used</label>
+              <input type="text" name="Tools Used" placeholder="e.g. Spreadsheets, brokerage tools, financial websites, PDFs, research papers" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
             </div>
 
-            {/* Checkbox Group - Capabilities */}
+            {/* Section 3 — Pain points (critical) */}
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Biggest challenges</label>
+              <textarea name="Biggest Challenges" rows="3" placeholder="What consumes the most time or effort during financial research?" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none resize-none"></textarea>
+            </div>
+
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Desired capabilities</label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-medium">
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Most frustrating tasks</label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
                 {[
-                  'Analyze annual reports automatically',
-                  'Generate investment insights',
-                  'Compare companies quickly',
-                  'Track market trends',
-                  'Academic/research usage',
-                  'Portfolio decision support'
+                  'Reading annual reports manually',
+                  'Extracting financial metrics',
+                  'Comparing companies',
+                  'Tracking trends over time',
+                  'Organizing research notes',
+                  'Turning research into decisions'
+                ].map(task => (
+                  <label key={task} className="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name={`Frustrating Task: ${task}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <span className="text-gray-600 dark:text-gray-300">{task}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Section 4 — Desired capabilities */}
+            <div className="space-y-3">
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Most valuable capabilities</label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
+                {[
+                  'Automatic annual report analysis',
+                  'Instant company summaries',
+                  'Financial trend detection',
+                  'Cross-company comparison',
+                  'Research organization workspace',
+                  'Decision-support insights'
                 ].map(cap => (
                   <label key={cap} className="flex items-center gap-2 cursor-pointer">
                     <input type="checkbox" name={`Capability: ${cap}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
-                    <span className="text-gray-600 dark:text-gray-300 dark:text-gray-400">{cap}</span>
+                    <span className="text-gray-600 dark:text-gray-300">{cap}</span>
                   </label>
                 ))}
               </div>
             </div>
 
-            {/* Text Input */}
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Primary goal</label>
-              <input type="text" name="Primary Goal" placeholder="e.g. Save time researching" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Primary outcome goal</label>
+              <input type="text" name="Primary Goal" placeholder="What result would make a tool like this essential for you?" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
             </div>
 
-            {/* Email Input */}
+            {/* Section 5 — Usage intent */}
+            <div className="space-y-3">
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Intended usage frequency</label>
+              <div className="flex flex-wrap gap-4">
+                {['Daily', 'Weekly', 'Occasionally', 'Only when researching a company'].map(freq => (
+                  <label key={freq} className="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                    <input type="radio" name="Usage Frequency" value={freq} className="text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <span className="text-gray-600 dark:text-gray-300">{freq}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Usage purpose</label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
+                {[
+                  'Investment decisions',
+                  'Academic research',
+                  'Market monitoring',
+                  'Business strategy',
+                  'Learning and education'
+                ].map(purpose => (
+                  <label key={purpose} className="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name={`Purpose: ${purpose}`} value="Yes" className="rounded text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <span className="text-gray-600 dark:text-gray-300">{purpose}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Section 6 — Optional early access */}
             <div className="space-y-2">
-              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">Email Address</label>
-              <input type="email" name="email" required placeholder="you@company.com" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">
+                Join early access updates <span className="text-gray-400 font-normal text-xs ml-2">(Optional)</span>
+              </label>
+              <input type="email" name="email" placeholder="you@company.com" className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Only used to notify when the platform launches.</p>
             </div>
 
             <div className="pt-6 border-t border-gray-100 dark:border-[#041a4a] flex flex-col items-center">
@@ -162,7 +217,9 @@ export default function EarlyAccessForm() {
               >
                 {status === 'submitting' ? 'Submitting...' : 'Submit & Join Early Access'}
               </button>
-              <p className="mt-4 text-xs font-semibold text-gray-400">No spam. Research use only.</p>
+              <p className="mt-4 text-xs max-w-sm text-center font-semibold text-gray-400">
+                This survey collects product research insights only. No personal or financial data is requested.
+              </p>
             </div>
           </form>
         </div>
