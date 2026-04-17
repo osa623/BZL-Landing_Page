@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '../LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Stats() {
   const containerRef = useRef(null);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const el = containerRef.current;
@@ -26,11 +28,20 @@ export default function Stats() {
     );
   }, []);
 
-  const stats = [
-    { value: '10x', label: 'Faster extraction' },
-    { value: '100%', label: 'Data structuration' },
-    { value: 'Multi', label: 'Market compatibility' },
-  ];
+  const content = {
+    en: [
+      { value: '10x', label: 'Faster extraction' },
+      { value: '100%', label: 'Data structuration' },
+      { value: 'Multi', label: 'Market compatibility' },
+    ],
+    si: [
+      { value: '10x', label: 'වේගවත් උකහා ගැනීම' },
+      { value: '100%', label: 'දත්ත ව්‍යුහගත කිරීම' },
+      { value: 'Multi', label: 'වෙළඳපොළ ගැළපුම' },
+    ]
+  };
+
+  const stats = content[language];
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-[#03143a] border-b border-gray-100 dark:border-[#041a4a] px-6">

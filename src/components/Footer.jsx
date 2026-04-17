@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '../LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
   const containerRef = useRef(null);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const el = containerRef.current;
@@ -36,7 +38,7 @@ export default function Footer() {
           <a href="mailto:hello@buyzonlabs.com" className="hover:text-bzl-gold transition-colors">
             hello@buyzonlabs.com
           </a>
-          <span>&copy; {new Date().getFullYear()} Buyzonlabs . All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Buyzonlabs . {language === 'en' ? 'All rights reserved.' : 'සියලුම හිමිකම් ඇවිරිණි.'}</span>
         </div>
       </div>
     </footer>

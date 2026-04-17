@@ -2,12 +2,14 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Lock, Sparkles, Code2, Globe2, BarChart3, LineChart } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Pipeline() {
   const containerRef = useRef(null);
   const trackRef = useRef(null);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const el = containerRef.current;
@@ -51,48 +53,106 @@ export default function Pipeline() {
     );
   }, []);
 
-  const stages = [
-    {
-      id: 1,
-      title: 'Financial Report Extraction & Analysing Engine',
-      description: 'The foundation is built. Complex 10-Ks and SEC filings are rapidly ingested and parsed with extreme precision.',
-      status: 'Launching Soon',
-      blur: false,
-      icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
+  const content = {
+    en: {
+      roadmap: 'The Roadmap',
+      title: <>The future of finance.<br className="hidden md:block"/> Unfolding in stages.</>,
+      desc: 'See how the architecture of Buyzonlabs is being engineered from the ground up to revolutionize market intelligence.',
+      locked: 'Locked',
+      stages: [
+        {
+          id: 1,
+          title: 'Financial Report Extraction & Analysing Engine',
+          description: 'The foundation is built. Complex 10-Ks and SEC filings are rapidly ingested and parsed with extreme precision.',
+          status: 'Launching Soon',
+          blur: false,
+          icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
+        },
+        {
+          id: 2,
+          title: 'AI Financial Analysis Core',
+          description: 'Advanced deep learning models process raw data into actionable long-term predictions.',
+          status: 'Upcoming',
+          blur: true,
+          icon: <Code2 className="w-6 h-6" />
+        },
+        {
+          id: 3,
+          title: 'Investor Insight Dashboard',
+          description: 'A beautiful, intuitive interface delivering real-time institutional-grade insights.',
+          status: 'Upcoming',
+          blur: true,
+          icon: <BarChart3 className="w-6 h-6" />
+        },
+        {
+          id: 4,
+          title: 'Collaboration & Research Tools',
+          description: 'Seamlessly build portfolios, share thesis, and track collaborative financial models.',
+          status: 'Upcoming',
+          blur: true,
+          icon: <LineChart className="w-6 h-6" />
+        },
+        {
+          id: 5,
+          title: 'Public Platform Launch',
+          description: 'The ultimate release bringing Buyzonlabs \'s full power to the global financial market.',
+          status: 'Upcoming',
+          blur: true,
+          icon: <Globe2 className="w-6 h-6" />
+        },
+      ]
     },
-    {
-      id: 2,
-      title: 'AI Financial Analysis Core',
-      description: 'Advanced deep learning models process raw data into actionable long-term predictions.',
-      status: 'Upcoming',
-      blur: true,
-      icon: <Code2 className="w-6 h-6" />
-    },
-    {
-      id: 3,
-      title: 'Investor Insight Dashboard',
-      description: 'A beautiful, intuitive interface delivering real-time institutional-grade insights.',
-      status: 'Upcoming',
-      blur: true,
-      icon: <BarChart3 className="w-6 h-6" />
-    },
-    {
-      id: 4,
-      title: 'Collaboration & Research Tools',
-      description: 'Seamlessly build portfolios, share thesis, and track collaborative financial models.',
-      status: 'Upcoming',
-      blur: true,
-      icon: <LineChart className="w-6 h-6" />
-    },
-    {
-      id: 5,
-      title: 'Public Platform Launch',
-      description: 'The ultimate release bringing Buyzonlabs \'s full power to the global financial market.',
-      status: 'Upcoming',
-      blur: true,
-      icon: <Globe2 className="w-6 h-6" />
-    },
-  ];
+    si: {
+      roadmap: 'ඉදිරි දැක්ම',
+      title: <>මූල්‍යයේ අනාගතය.<br className="hidden md:block"/> අදියර වශයෙන් දිගහැරේ.</>,
+      desc: 'වෙළෙඳපොළ බුද්ධිය විප්ලවීය කිරීම සඳහා Buyzonlabs හි ගෘහ නිර්මාණ ශිල්පය ගොඩනැගෙමින් පවතින ආකාරය බලන්න.',
+      locked: 'අගුලු දමා ඇත',
+      stages: [
+        {
+          id: 1,
+          title: 'මූල්‍ය වාර්තා උකහා ගැනීමේ සහ විශ්ලේෂණය කිරීමේ යන්ත්‍රය',
+          description: 'පදනම ගොඩනගා ඇත. සංකීර්ණ 10-Ks සහ SEC තැන්පතු අතිශය නිරවද්‍යතාවයෙන් ඉක්මනින් විශ්ලේෂණය කෙරේ.',
+          status: 'ළඟදීම දියත් කෙරේ',
+          blur: false,
+          icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
+        },
+        {
+          id: 2,
+          title: 'AI මූල්‍ය විශ්ලේෂණ හරය',
+          description: 'උසස් ගැඹුරු ඉගෙනුම් ආකෘති මගින් අමු දත්ත ක්‍රියාකාරී දිගුකාලීන පුරෝකථනයන් බවට පත් කරයි.',
+          status: 'ඉදිරියේදී',
+          blur: true,
+          icon: <Code2 className="w-6 h-6" />
+        },
+        {
+          id: 3,
+          title: 'ආයෝජක අවබෝධය සඳහා උපකරණ පුවරුව',
+          description: 'ආයතනික මට්ටමේ අවබෝධයන් තත්‍ය කාලීනව ලබා දෙන අලංකාර, අවබෝධාත්මක අතුරු මුහුණතක්.',
+          status: 'ඉදිරියේදී',
+          blur: true,
+          icon: <BarChart3 className="w-6 h-6" />
+        },
+        {
+          id: 4,
+          title: 'සහයෝගීතා සහ පර්යේෂණ මෙවලම්',
+          description: 'පහසුවෙන් කළඹ ගොඩනඟන්න, නිබන්ධන බෙදාගන්න, සහ සහයෝගීතා මූල්‍ය ආකෘති නිරීක්ෂණය කරන්න.',
+          status: 'ඉදිරියේදී',
+          blur: true,
+          icon: <LineChart className="w-6 h-6" />
+        },
+        {
+          id: 5,
+          title: 'පොදු වේදිකා දියත් කිරීම',
+          description: 'ලෝක මූල්‍ය වෙළඳපොළට Buyzonlabs හි සම්පූර්ණ බලය ලබා දෙන අවසාන නිකුතුව.',
+          status: 'ඉදිරියේදී',
+          blur: true,
+          icon: <Globe2 className="w-6 h-6" />
+        },
+      ]
+    }
+  };
+
+  const t = content[language];
 
   return (
     <section id="pipeline" className="relative py-32 md:py-48 bg-[#F5F5F7] dark:bg-[#01081a] overflow-x-hidden border-y border-gray-200 dark:border-[#041a4a]">
@@ -101,13 +161,13 @@ export default function Pipeline() {
         {/* Header */}
         <div className="pipeline-header text-center mb-24 md:mb-32">
           <h2 className="text-sm font-bold tracking-widest text-[#86868b] dark:text-gray-400 uppercase mb-4">
-            The Roadmap
+            {t.roadmap}
           </h2>
           <h3 className="text-5xl md:text-7xl font-semibold tracking-[-0.03em] text-[#1d1d1f] dark:text-white mb-6">
-            The future of finance.<br className="hidden md:block"/> Unfolding in stages.
+            {t.title}
           </h3>
           <p className="text-xl md:text-2xl text-[#86868b] dark:text-gray-400 max-w-3xl mx-auto font-medium tracking-tight">
-            See how the architecture of Buyzonlabs is being engineered from the ground up to revolutionize market intelligence.
+            {t.desc}
           </p>
         </div>
 
@@ -125,7 +185,7 @@ export default function Pipeline() {
           ></div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 gap-y-12">
-            {stages.map((stage) => (
+            {t.stages.map((stage) => (
               <div 
                 key={stage.id} 
                 className="pipeline-node relative flex flex-col items-center group"
@@ -170,7 +230,7 @@ export default function Pipeline() {
                         <Lock className="w-7 h-7 text-[#1d1d1f] dark:text-white" strokeWidth={1.5} />
                       </div>
                       <span className="text-[13px] font-semibold tracking-widest text-[#1d1d1f] dark:text-white uppercase opacity-80 decoration-slice">
-                        Locked
+                        {t.locked}
                       </span>
                     </div>
                   )}

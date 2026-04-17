@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '../LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function EarlyAccessForm() {
   const containerRef = useRef(null);
   const [status, setStatus] = useState('idle'); // idle, submitting, success
+  const { language } = useLanguage();
 
   useEffect(() => {
     const el = containerRef.current;
@@ -51,16 +53,75 @@ export default function EarlyAccessForm() {
     }
   };
 
+  const content = {
+    en: {
+      title: 'Help Shape Buyzonlabs',
+      desc: 'Your answers directly influence how the platform is being built.',
+      qRole: 'Primary role',
+      qExp: 'Experience level',
+      qMarkets: 'Markets followed',
+      qCurrentWorkflow: 'Current research workflow',
+      qCurrentWorkflowP: 'Describe how you currently research companies or investments from start to decision.',
+      qTools: 'Tools currently used',
+      qToolsP: 'e.g. Spreadsheets, brokerage tools, financial websites, PDFs, research papers',
+      qChallenges: 'Biggest challenges',
+      qChallengesP: 'What consumes the most time or effort during financial research?',
+      qFrustration: 'Most frustrating tasks',
+      qCaps: 'Most valuable capabilities',
+      qGoal: 'Primary outcome goal',
+      qGoalP: 'What result would make a tool like this essential for you?',
+      qFreq: 'Intended usage frequency',
+      qPur: 'Usage purpose',
+      qJoin: 'Join early access updates',
+      qEmailP: 'you@company.com',
+      s1: 'Only used to notify when the platform launches.',
+      s2: 'This survey collects product research insights only. No personal or financial data is requested.',
+      sub: 'Submitting...',
+      subJoin: 'Submit & Join Early Access',
+      thx: 'Thank you for contributing',
+      thxDesc: 'Your input is helping shape the first release of Buyzonlabs. We\'ll be in touch soon.'
+    },
+    si: {
+      title: 'Buyzonlabs හැඩගැස්වීමට උදවු වන්න',
+      desc: 'ඔබගේ පිළිතුරු වේදිකාව ගොඩනැගෙමින් පවතින ආකාරය කෙරෙහි සෘජුවම බලපායි.',
+      qRole: 'මූලික භූමිකාව',
+      qExp: 'පළපුරුද්දේ මට්ටම',
+      qMarkets: 'අනුගමනය කරන වෙළඳපොළ',
+      qCurrentWorkflow: 'වත්මන් පර්යේෂණ කාර්ය ප්‍රවාහය',
+      qCurrentWorkflowP: 'ඔබ දැනට සමාගම් හෝ ආයෝජන තීරණය කිරීමේ සිට පර්යේෂණ කරන ආකාරය විස්තර කරන්න.',
+      qTools: 'දැනට භාවිතා කරන මෙවලම්',
+      qToolsP: 'උදා: පැතුරුම්පත්, තැරැව්කාර මෙවලම්, මූල්‍ය වෙබ් අඩවි, PDF, පර්යේෂණ පත්‍රිකා',
+      qChallenges: 'ලොකුම අභියෝග',
+      qChallengesP: 'මූල්‍ය පර්යේෂණ අතරතුර වැඩිපුරම කාලය හෝ ශ්‍රමය වැය වන්නේ කුමක් සඳහාද?',
+      qFrustration: 'වඩාත් කලකිරවන කාර්යයන්',
+      qCaps: 'වඩාත්ම වටිනා හැකියාවන්',
+      qGoal: 'ප්‍රාථමික ප්‍රතිඵල ඉලක්කය',
+      qGoalP: 'මෙවැනි මෙවලමක් ඔබට අත්‍යවශ්‍ය කරවන ප්‍රතිඵලය කුමක්ද?',
+      qFreq: 'අපේක්ෂිත භාවිත සංඛ්‍යාතය',
+      qPur: 'භාවිතයේ අරමුණ',
+      qJoin: 'මූලික ප්‍රවේශ යාවත්කාලීනවලට එක්වන්න',
+      qEmailP: 'ඔබ@සමාගම.com',
+      s1: 'වේදිකාව දියත් කරන විට දැනුම් දීමට පමණක් යොදා ගනී.',
+      s2: 'මෙම සමීක්ෂණය නිෂ්පාදන පර්යේෂණ තොරතුරු පමණක් රැස් කරයි. කිසිදු පුද්ගලික හෝ මූල්‍ය දත්තයක් ඉල්ලා නැත.',
+      sub: 'ඉදිරිපත් කරමින් පවතී...',
+      subJoin: 'ඉදිරිපත් කර මූලික ප්‍රවේශයට එක්වන්න',
+      thx: 'ඔබගේ දායකත්වයට ස්තූතියි',
+      thxDesc: 'ඔබගේ ආදානය Buyzonlabs හි පළමු නිකුතුව හැඩගස්වයි. අපි ඉක්මනින් සම්බන්ධ වන්නෙමු.'
+    }
+  };
+
+  const t = content[language];
+
   return (
     <section id="contact" className="min-h-screen py-32 bg-gray-50 dark:bg-[#03143a]/50 px-6 flex items-center justify-center">
-      <div ref={containerRef} className="w-full max-w-3xl bg-white dark:bg-bzl-blue p-8 md:p-12 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 dark:border-[#041a4a] relative overflow-hidden">
+      <div ref={containerRef} className="w-full max-w-3xl bg-white dark:bg-bzl-blue p-8 md:p-12 rounded-4xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 dark:border-bzl-blue-hover relative overflow-hidden">
         
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-bzl-blue dark:text-white mb-4">
-            Help Shape Buyzonlabs 
+            {t.title}
           </h2>
           <p className="text-gray-500 dark:text-gray-400 font-medium">
-            Your answers directly influence how the platform is being built.
+            {t.desc}
           </p>
         </div>
 

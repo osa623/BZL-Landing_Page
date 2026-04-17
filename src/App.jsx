@@ -10,6 +10,7 @@ import Vision from './components/Vision';
 import FAQ from './components/FAQ';
 import EarlyAccessForm from './components/EarlyAccessForm';
 import Footer from './components/Footer';
+import { LanguageProvider } from './LanguageContext';
 
 function LandingPage() {
   return (
@@ -28,14 +29,16 @@ function LandingPage() {
 
 function App() {
   return (
-    <div className="font-sans antialiased text-gray-900 selection:bg-bzl-gold selection:text-bzl-blue scroll-smooth">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/early-access" element={<EarlyAccessForm />} />
-      </Routes>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="font-sans antialiased text-gray-900 selection:bg-bzl-gold selection:text-bzl-blue scroll-smooth">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/early-access" element={<EarlyAccessForm />} />
+        </Routes>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 
