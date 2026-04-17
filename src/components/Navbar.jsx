@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { useLanguage } from '../LanguageContext';
+import logo from '../assets/new_logo.png';
 
 export default function Navbar() {
   const location = useLocation();
@@ -67,10 +68,8 @@ export default function Navbar() {
     <nav id="navbar" className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4 border-b border-transparent">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <Link to="/" className="text-xl md:text-2xl font-extrabold tracking-tight text-bzl-blue dark:text-white flex items-center gap-2.5 transition-transform hover:scale-105">
-          <div className="w-8 h-8 bg-bzl-blue dark:bg-white rounded-lg flex items-center justify-center shadow-sm">
-            <div className="w-3 h-3 bg-white dark:bg-bzl-blue rounded-sm" />
-          </div>
-          Buyzonlabs
+          <img src={logo} alt="Buyzonlabs Logo" className="h-8 md:h-10 w-auto object-contain drop-shadow-sm" />
+          <span className="hidden sm:inline-block">Buyzonlabs</span>
         </Link>
         <div className="hidden md:flex gap-8 text-sm font-semibold text-gray-500 dark:text-gray-300">
           <button onClick={() => scrollTo('features')} className="hover:text-bzl-blue dark:hover:text-white transition-colors">{t.features}</button>

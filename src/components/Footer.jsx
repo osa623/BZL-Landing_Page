@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../LanguageContext';
+import logo from '../assets/new_logo.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,9 +45,7 @@ export default function Footer() {
 
         <div className="w-full flex w-full flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
-             <div className="w-8 h-8 bg-bzl-blue dark:bg-black text-white rounded-lg flex items-center justify-center font-black shadow-md border border-gray-200 dark:border-gray-800">
-                B
-             </div>
+             <img src={logo} alt="Buyzonlabs" className="h-10 md:h-12 w-auto object-contain drop-shadow-md" />
              <span className="text-xl font-bold tracking-tight text-bzl-blue dark:text-white">Buyzonlabs</span>
           </div>
 
