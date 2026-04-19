@@ -76,6 +76,8 @@ export default function EarlyAccessForm() {
       qUrgency: 'How urgently do you need a better solution?',
       qPay: 'Would you pay for a tool like this?',
       qJoin: 'Join early access updates',
+      qName: 'Your name',
+      qNameP: 'Henuka De Silva',
       qEmailP: 'you@company.com',
       s1: 'Only used to notify when the platform launches.',
       s2: 'This survey collects product research insights only. No personal or financial data is requested.',
@@ -156,6 +158,8 @@ export default function EarlyAccessForm() {
       qUrgency: 'ඔබට වඩා හොඳ විසඳුමක් කොපමණ හදිසිව අවශ්‍යද?',
       qPay: 'මෙවැනි මෙවලමක් සඳහා ඔබ ගෙවීමට කැමතිද?',
       qJoin: 'මූලික ප්‍රවේශ යාවත්කාලීනවලට එක්වන්න',
+      qName: 'ඔබගේ නම',
+      qNameP: 'නිදසුන: හේනුක ඩී සිල්වා ',
       qEmailP: 'ඔබ@සමාගම.com',
       s1: 'වේදිකාව දියත් කරන විට දැනුම් දීමට පමණක් යොදා ගනී.',
       s2: 'මෙම සමීක්ෂණය නිෂ්පාදන පර්යේෂණ තොරතුරු පමණක් රැස් කරයි. කිසිදු පුද්ගලික හෝ මූල්‍ය දත්තයක් ඉල්ලා නැත.',
@@ -383,12 +387,13 @@ export default function EarlyAccessForm() {
               </div>
             </div>
 
-            {/* Section 6 — Optional early access */}
+            {/* Section 9 — Early access contact */}
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-bzl-blue dark:text-white">
-                {t.qJoin} <span className="text-gray-400 font-normal text-xs ml-2">(Optional)</span>
+                {t.qJoin} <span className="text-red-500">*</span>
               </label>
-              <input type="email" name="email" placeholder={t.qEmailP} className="w-full p-3 rounded-lg border border-gray-200 dark:border-[#041a4a] focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
+              <input type="text" name="name" required placeholder={t.qNameP} className="w-full p-3 rounded-lg border border-gray-200 dark:border-bzl-blue-hover focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
+              <input type="email" name="email" required placeholder={t.qEmailP} className="w-full p-3 rounded-lg border border-gray-200 dark:border-bzl-blue-hover focus:border-bzl-gold focus:ring-1 focus:ring-bzl-gold bg-gray-50 dark:bg-[#03143a] transition-all outline-none" />
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{t.s1}</p>
             </div>
 
