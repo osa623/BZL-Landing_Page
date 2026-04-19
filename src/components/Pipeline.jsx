@@ -60,22 +60,42 @@ export default function Pipeline() {
       desc: 'See how the architecture of Buyzonlabs is being engineered from the ground up to revolutionize market intelligence.',
       locked: 'Locked',
       stages: [
-        {
+        /*{
           id: 1,
           title: 'Financial Report Extraction & Analysing Engine',
           description: 'The foundation is built. Complex 10-Ks and SEC filings are rapidly ingested and parsed with extreme precision.',
           status: 'Launching Soon',
           blur: false,
           icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
-        },
+        },*/
+        
         {
+          id: 1,
+          title: 'PDF Data Extraction Engine',
+          description: 'Extracts tables, financial data, and key metrics from stock reports with high accuracy.',
+          status: 'Launching Soon',
+          blur: false,
+          icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
+        },
+
+        {
+          id: 2,
+          title: 'AI Company Analysis Engine',
+          description: 'Generates full company analysis using AI, including ratios, valuations, and clear financial insights from extracted data.',
+          status: 'Launching Soon',
+          blur: true,
+          icon: <Code2 className="w-6 h-6" />
+        },
+        
+
+        /*{
           id: 2,
           title: 'AI Financial Analysis Core',
           description: 'Advanced deep learning models process raw data into actionable long-term predictions.',
           status: 'Upcoming',
           blur: true,
           icon: <Code2 className="w-6 h-6" />
-        },
+        },*/ 
         {
           id: 3,
           title: 'Investor Insight Dashboard',
