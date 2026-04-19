@@ -36,17 +36,17 @@ export default function Problem() {
         {
           id: '01',
           title: 'Financial research is slow',
-          desc: 'Manually sorting through hundreds of pages of filings is an outdated, tedious process that delays decisive action.'
+          desc: 'Going through long financial reports is slow and time-consuming, making it hard to act quickly.'
         },
         {
           id: '02',
           title: 'Reports are unreadable for most people',
-          desc: 'Obscure financial jargon and complex tables hide the true narrative of a company\'s actual health and prospects.'
+          desc: 'Complex terms and confusing tables make it difficult to see what’s really going on in a company.'
         },
         {
           id: '03',
           title: 'Decisions rely on scattered tools',
-          desc: 'Using multiple disconnected platforms fragments your workflow and breaks the clarity needed for confident investments.'
+          desc: 'Using different platforms breaks your workflow and makes decision-making less clear.'
         }
       ]
     },
