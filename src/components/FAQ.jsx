@@ -51,10 +51,10 @@ export default function FAQ() {
           q: 'Can I export the data?', 
           a: 'Yes. Export your data in multiple formats including Excel, Word, text, and developer-friendly formats.' 
         },
-        { 
+        /*{ 
           q: 'Will there be an API?', 
           a: 'Yes. We plan to offer API access so you can integrate data and insights into your own tools and workflows.' 
-        },
+        },*/
         { 
           q: 'How is this different from other tools?', 
           a: 'Instead of just summarizing reports, we extract, structure, and analyze financial data to give you actionable insights.' 
@@ -81,10 +81,10 @@ export default function FAQ() {
               q: 'දත්ත export කරන්න පුළුවන්ද?', 
               a: 'ඔව්. Excel, Word, text සහ developer-friendly ආකෘති වලට ඔබගේ දත්ත පහසුවෙන් අපනයනය කළ හැක.' 
             },
-            { 
+            /*{ 
               q: 'API එකක් ලබාදෙනවද?', 
               a: 'ඔව්. ඔබගේ systems සහ workflows සමඟ එකතු කරගැනීමට API පහසුකම් ඉදිරියේදී ලබාදීමට අපි සැලසුම් කරලා තියෙනවා.' 
-            },
+            },*/
             { 
               q: 'මෙය වෙනත් මෙවලම් වලට වඩා වෙනස් වෙන්නේ කොහොමද?', 
               a: 'අපි වාර්තා සාරාංශ කිරීම පමණක් නොව, මුල්‍ය දත්ත උකහාගෙන, සකස් කරලා, විශ්ලේෂණය කරමින් ඔබට ක්‍රියාත්මක කළ හැකි අවබෝධ ලබාදෙමු.' 
