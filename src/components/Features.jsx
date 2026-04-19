@@ -37,40 +37,40 @@ export default function Features() {
       features: [
         {
           id: '01',
-          title: 'Semantic Intelligence',
-          desc: 'Understand market reports the way leading experts do. Not just keyword searching.',
+          title: 'Smart Data Extraction',
+          desc: 'Pull tables, numbers, and financial insights directly from PDFs in seconds.',
           icon: <BrainCircuit size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '02',
-          title: 'Automated Workflows',
-          desc: 'Map out complex business ideas and convert them into executed data strategies.',
+          title: 'Flexible Export Options',
+          desc: 'Export your data in multiple formats — ready for analysis, sharing, or development.',
           icon: <Workflow size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '03',
-          title: 'Actionable Forecasting',
-          desc: 'Unearth trends and potential trajectories visually with generated dashboards.',
+          title: 'AI-Driven Analysis',
+          desc: 'Transform raw reports into meaningful insights powered by intelligent analysis.',
           icon: <LineChart size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '04',
-          title: 'Precision Extraction',
-          desc: 'Pull exact figures, sentiments, and notes from long-form PDFs easily.',
+          title: 'Advanced Financial Metrics',
+          desc: 'Access key ratios and valuation models without manual calculations.',
           icon: <Target size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '05',
-          title: 'Structured Databases',
-          desc: 'Every insight is formatted, categorized, and ready to export or query.',
+          title: 'Clear, Actionable Summaries',
+          desc: 'Understand company performance quickly with concise AI-generated summaries.',
           icon: <Database size={24} className="text-gray-900 dark:text-white" />
         },
-        {
+        /*{
           id: '06',
           title: 'Reliable Architectures',
           desc: 'Built on rigorous and highly verified financial algorithms assuring zero hallucination.',
           icon: <ShieldCheck size={24} className="text-gray-900 dark:text-white" />
-        },
+        },*/
       ]
     },
     si: {
