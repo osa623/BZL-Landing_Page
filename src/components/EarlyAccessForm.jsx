@@ -60,8 +60,8 @@ export default function EarlyAccessForm() {
       qRole: 'Primary role',
       qExp: 'Experience level',
       qMarkets: 'Markets followed',
-      qCurrentWorkflow: 'Current research workflow',
-      qCurrentWorkflowP: 'Describe how you currently research companies or investments from start to decision.',
+      qCurrentWorkflow: 'How do you usually research?',
+      qCurrentWorkflowP: 'Tell us the methods or tools you typically use.',
       qTools: 'Tools currently used',
       qToolsP: 'e.g. Spreadsheets, brokerage tools, financial websites, PDFs, research papers',
       qChallenges: 'Biggest challenges',
@@ -72,6 +72,9 @@ export default function EarlyAccessForm() {
       qGoalP: 'What result would make a tool like this essential for you?',
       qFreq: 'Intended usage frequency',
       qPur: 'Usage purpose',
+      qTimeSpent: 'Time spent analyzing one company',
+      qUrgency: 'How urgently do you need a better solution?',
+      qPay: 'Would you pay for a tool like this?',
       qJoin: 'Join early access updates',
       qEmailP: 'you@company.com',
       s1: 'Only used to notify when the platform launches.',
@@ -84,12 +87,12 @@ export default function EarlyAccessForm() {
       levels: ['Beginner', 'Intermediate', 'Advanced', 'Professional'],
       markets: ['Colombo Stock Exchange (CSE)', 'US markets', 'Crypto markets', 'Forex', 'Other'],
       frustrations: [
-        'Reading annual reports manually',
-        'Extracting financial metrics',
+        'Reading reports',
+        'Extracting data',
         'Comparing companies',
-        'Tracking trends over time',
-        'Organizing research notes',
-        'Turning research into decisions'
+        'Understanding financials',
+        'Doing calculations and valuations',
+        'Making decisions'
       ],
       capabilities: [
         'Automatic annual report analysis',
@@ -106,7 +109,30 @@ export default function EarlyAccessForm() {
         'Market monitoring',
         'Business strategy',
         'Learning and education'
-      ]
+      ],
+
+
+      timeSpentOptions: [
+        '<30 minutes',
+        '30–60 minutes',
+        '1–3 hours',
+        '3+ hours'
+      ],
+
+      urgencyOptions: [
+        'Very urgent',
+        'Somewhat urgent',
+        'Just exploring'
+      ],
+
+      payOptions: [
+        'Yes',
+        'Maybe',
+        'No'
+      ],
+
+           
+
     },
     si: {
       title: 'Buyzonlabs හැඩගැස්වීමට උදවු වන්න',
@@ -114,8 +140,8 @@ export default function EarlyAccessForm() {
       qRole: 'මූලික භූමිකාව',
       qExp: 'පළපුරුද්දේ මට්ටම',
       qMarkets: 'අනුගමනය කරන වෙළඳපොළ',
-      qCurrentWorkflow: 'වත්මන් පර්යේෂණ කාර්ය ප්‍රවාහය',
-      qCurrentWorkflowP: 'ඔබ දැනට සමාගම් හෝ ආයෝජන තීරණය කිරීමේ සිට පර්යේෂණ කරන ආකාරය විස්තර කරන්න.',
+      qCurrentWorkflow: 'ඔබ සාමාන්‍යයෙන් පර්යේෂණය කරන ආකාරය කුමක්ද?',
+      qCurrentWorkflowP: 'ඔබ සාමාන්‍යයෙන් භාවිතා කරන ක්‍රම හෝ මෙවලම් අපට කියන්න.',
       qTools: 'දැනට භාවිතා කරන මෙවලම්',
       qToolsP: 'උදා: පැතුරුම්පත්, තැරැව්කාර මෙවලම්, මූල්‍ය වෙබ් අඩවි, PDF, පර්යේෂණ පත්‍රිකා',
       qChallenges: 'ලොකුම අභියෝග',
@@ -126,6 +152,9 @@ export default function EarlyAccessForm() {
       qGoalP: 'මෙවැනි මෙවලමක් ඔබට අත්‍යවශ්‍ය කරවන ප්‍රතිඵලය කුමක්ද?',
       qFreq: 'අපේක්ෂිත භාවිත සංඛ්‍යාතය',
       qPur: 'භාවිතයේ අරමුණ',
+      qTimeSpent: 'එක් සමාගමක් විශ්ලේෂණය කිරීමට ගතවන කාලය',
+      qUrgency: 'ඔබට වඩා හොඳ විසඳුමක් කොපමණ හදිසිව අවශ්‍යද?',
+      qPay: 'මෙවැනි මෙවලමක් සඳහා ඔබ ගෙවීමට කැමතිද?',
       qJoin: 'මූලික ප්‍රවේශ යාවත්කාලීනවලට එක්වන්න',
       qEmailP: 'ඔබ@සමාගම.com',
       s1: 'වේදිකාව දියත් කරන විට දැනුම් දීමට පමණක් යොදා ගනී.',
@@ -138,12 +167,12 @@ export default function EarlyAccessForm() {
       levels: ['ආධුනික', 'මධ්‍යම', 'උසස්', 'වෘත්තීය'],
       markets: ['කොළඹ කොටස් හුවමාරුව (CSE)', 'එක්සත් ජනපද වෙළඳපල', 'ක්‍රිප්ටෝ වෙළඳපල', 'විදේශ විනිමය (Forex)', 'වෙනත්'],
       frustrations: [
-        'වාර්ෂික වාර්තා කියවීම',
-        'මූල්‍ය දත්ත උකහා ගැනීම',
-        'සමාගම් සංසන්දනය කිරීම',
-        'කාලයත් සමඟ ප්‍රවණතා නිරීක්ෂණය කිරීම',
-        'පර්යේෂණ සටහන් සංවිධානය කිරීම',
-        'පර්යේෂණ තීරණ බවට පත් කිරීම'
+        'වාර්තා කියවීම',
+        'දත්ත උකහා ගැනීම',
+        'සමාගම් සසඳීම',
+        'මුල්‍ය තත්ත්වය අවබෝධ කරගැනීම',
+        'ගණනය කිරීම් සහ වටිනාකරණ කිරීම',
+        'තීරණ ගැනීම'
       ],
       capabilities: [
         'ස්වයංක්‍රීය වාර්ෂික වාර්තා විශ්ලේෂණය',
@@ -160,7 +189,28 @@ export default function EarlyAccessForm() {
         'වෙළඳපොළ නිරීක්ෂණය',
         'ව්‍යාපාරික උපායමාර්ග',
         'ඉගෙනීම සහ අධ්‍යාපනය'
-      ]
+      ],
+
+      timeSpentOptions: [
+        'මිනිත්තු 30ට අඩු',
+        'මිනිත්තු 30–60',
+        'පැය 1–3',
+        'පැය 3ට වැඩි'
+      ],
+
+      urgencyOptions: [
+        'ඉතා හදිසි',
+        'කොපමණ හෝ හදිසි',
+        'වටහා බැලීම සඳහා පමණයි'
+      ],
+
+      payOptions: [
+        'ඔව්',
+        'සමහරවිට',
+        'නැහැ'
+      ],
+
+
     }
   };
 
