@@ -344,6 +344,45 @@ export default function EarlyAccessForm() {
               </div>
             </div>
 
+            {/* Section 6 — Time spent analyzing */}
+            <div className="space-y-3">
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qTimeSpent}</label>
+              <div className="flex flex-wrap gap-4">
+                {t.timeSpentOptions.map((opt, i) => (
+                  <label key={opt} className="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                    <input type="radio" name="TimeSpent" value={content.en.timeSpentOptions[i]} className="text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <span className="text-gray-600 dark:text-gray-300">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Section 7 — Urgency */}
+            <div className="space-y-3">
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qUrgency}</label>
+              <div className="flex flex-wrap gap-4">
+                {t.urgencyOptions.map((opt, i) => (
+                  <label key={opt} className="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                    <input type="radio" name="Urgency" value={content.en.urgencyOptions[i]} className="text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <span className="text-gray-600 dark:text-gray-300">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Section 8 — Willingness to pay */}
+            <div className="space-y-3">
+              <label className="block text-sm font-semibold text-bzl-blue dark:text-white">{t.qPay}</label>
+              <div className="flex flex-wrap gap-4">
+                {t.payOptions.map((opt, i) => (
+                  <label key={opt} className="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                    <input type="radio" name="WillingToPay" value={content.en.payOptions[i]} className="text-bzl-gold focus:ring-bzl-gold border-gray-300" />
+                    <span className="text-gray-600 dark:text-gray-300">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
             {/* Section 6 — Optional early access */}
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-bzl-blue dark:text-white">
