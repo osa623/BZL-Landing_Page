@@ -71,31 +71,22 @@ export default function Pipeline() {
         
         {
           id: 1,
-          title: 'PDF Data Extraction Engine',
-          description: 'Extracts tables, financial data, and key metrics from stock reports with high accuracy.',
+          title: 'PDF Data Extraction & Company Analysis Engine',
+          description: 'Extracts financial data from reports and generates full company analysis with key metrics, ratios, valuations, and AI insights.',
           status: 'Launching Soon',
           blur: false,
           icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
         },
 
-        {
-          id: 2,
-          title: 'AI Company Analysis Engine',
-          description: 'Generates full company analysis using AI, including ratios, valuations, and clear financial insights from extracted data.',
-          status: 'Launching Soon',
-          blur: true,
-          icon: <Code2 className="w-6 h-6" />
-        },
         
-
-        /*{
+        {
           id: 2,
           title: 'AI Financial Analysis Core',
           description: 'Advanced deep learning models process raw data into actionable long-term predictions.',
           status: 'Upcoming',
           blur: true,
           icon: <Code2 className="w-6 h-6" />
-        },*/ 
+        },
         {
           id: 3,
           title: 'Investor Insight Dashboard',
@@ -135,34 +126,27 @@ export default function Pipeline() {
           status: 'ළඟදීම දියත් කෙරේ',
           blur: false,
           icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
+        },*/
+       
+
+
+         {
+          id: 1,
+          title: 'PDF දත්ත උපුටාගැනීම සහ සමාගම් විශ්ලේෂණ එන්ජිම',
+          description: 'වාර්තා වලින් මූල්‍ය දත්ත උපුටාගෙන, ප්‍රධාන මිනුම්, අනුපාත, වටිනාකම් හා AI විග්‍රහයන් සමඟ සම්පූර්ණ සමාගම් විශ්ලේෂණයක් ලබාදෙයි.',
+          status: 'ළඟදීම දියත් කෙරේ',
+          blur: false,
+          icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
         },
-        {
+        
+         {
           id: 2,
           title: 'AI මූල්‍ය විශ්ලේෂණ හරය',
           description: 'උසස් ගැඹුරු ඉගෙනුම් ආකෘති මගින් අමු දත්ත ක්‍රියාකාරී දිගුකාලීන පුරෝකථනයන් බවට පත් කරයි.',
           status: 'ඉදිරියේදී',
           blur: true,
           icon: <Code2 className="w-6 h-6" />
-        },*/
-
-
-         {
-          id: 1,
-          title: 'මූල්‍ය වාර්තා උකහා ගැනීමේ මෙවලම',
-          description: 'ඉතා නිවැරදිව stock reports වලින් වගු, මුල්‍ය දත්ත සහ ප්‍රධාන මිනුම් උකහා ගනී.',
-          status: 'ළඟදීම දියත් කෙරේ',
-          blur: false,
-          icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
         },
-        {
-          id: 2,
-          title: 'කෘතිම බුද්ධි(AI) මූල්‍ය විශ්ලේෂණ මෙවලම',
-          description: 'උකහා ගත් දත්ත භාවිතා කරමින් කෘතිම බුද්ධිය මඟින් සමාගම් විශ්ලේෂණය සම්පූර්ණයෙන් සිදු කරයි, එයට අනුපාත, වටිනාකම් සහ පැහැදිලි මුල්‍ය අවබෝධ ඇතුළත් වේ.',
-          status: 'ඉදිරියේදී',
-          blur: true,
-          icon: <Code2 className="w-6 h-6" />
-        },
-
 
 
         {
