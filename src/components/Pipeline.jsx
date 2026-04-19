@@ -115,7 +115,7 @@ export default function Pipeline() {
     },
     si: {
       roadmap: 'ඉදිරි දැක්ම',
-      title: <>මූල්‍යයේ අනාගතය.<br className="hidden md:block"/> අදියර වශයෙන් දිගහැරේ.</>,
+      title: <>අනාගත මූල්‍ය ලෝකය.<br className="hidden md:block"/> අදියර වශයෙන් දිගහැරේ.</>,
       desc: 'වෙළෙඳපොළ බුද්ධිය විප්ලවීය කිරීම සඳහා Buyzonlabs හි ගෘහ නිර්මාණ ශිල්පය ගොඩනැගෙමින් පවතින ආකාරය බලන්න.',
       locked: 'අගුලු දමා ඇත',
       stages: [
