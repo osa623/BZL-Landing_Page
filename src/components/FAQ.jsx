@@ -35,21 +35,61 @@ export default function FAQ() {
       subtitle: 'FAQ',
       title: 'Common Questions',
       faqs: [
-        { q: 'Is Buyzonlabs live yet?', a: 'We have completed the core extraction engine (Stage 1) and are actively developing the remainder of the platform. We are collecting early-access registrations right now.' },
-        { q: 'Who is the platform best suited for?', a: 'Investors requiring deep insights, students conducting financial research, and businesses needing to map their strategies against complex metrics.' },
-        { q: 'Will there be an API?', a: 'Yes. Our roadmap includes providing programmatic access to the data pipelines and intelligence layers.' },
-        { q: "How are you different from other financial tools?", a: 'We bridge Apple-like simplicity with incredibly complex semantic analysis. We don\'t just summarize PDFs; we transform business ideas into structured data.' },
+        { 
+          q: 'Is Buyzonlabs live yet?', 
+          a: 'We’ve built the core extraction engine and are currently developing the full platform. Early access is now open.' 
+        },
+        { 
+          q: 'Who is this platform for?', 
+          a: 'Designed for investors, students, and professionals who need fast, accurate insights from financial reports.' 
+        },
+        { 
+          q: 'What can I do with my PDFs?', 
+          a: 'Upload financial reports to extract tables, analyze data, calculate key metrics, and generate clear summaries.' 
+        },
+        { 
+          q: 'Can I export the data?', 
+          a: 'Yes. Export your data in multiple formats including Excel, Word, text, and developer-friendly formats.' 
+        },
+        { 
+          q: 'Will there be an API?', 
+          a: 'Yes. We plan to offer API access so you can integrate data and insights into your own tools and workflows.' 
+        },
+        { 
+          q: 'How is this different from other tools?', 
+          a: 'Instead of just summarizing reports, we extract, structure, and analyze financial data to give you actionable insights.' 
+        }
       ]
     },
     si: {
       subtitle: 'නිතර අසන ප්‍රශ්න',
       title: 'සාමාන්‍ය ප්‍රශ්න',
-      faqs: [
-        { q: 'Buyzonlabs දැනටමත් භාවිතයට ගත හැකිද?', a: 'අපි දැනට මූලික දත්ත ලබාගැනීමේ පද්ධතිය (අදියර 1) සම්පූර්ණ කර ඇති අතර, වේදිකාවේ ඉතිරි කොටස් සක්‍රීයව සංවර්ධනය කරමින් සිටිමු. දැනට අපි මූලික ප්‍රවේශය සඳහා ලියාපදිංචි වීම් එකතු කරමින් සිටිමු.' },
-        { q: 'මෙම වේදිකාව වඩාත් සුදුසු වන්නේ කාටද?', a: 'ගැඹුරු අවබෝධයක් අවශ්‍ය ආයෝජකයින්ට, මූල්‍ය පර්යේෂණ කරන සිසුන්ට සහ සංකීර්ණ මිනුම් සමඟ ඔවුන්ගේ උපාය මාර්ග සැලසුම් කිරීමට අවශ්‍ය ව්‍යාපාරිකයින්ට.' },
-        { q: 'මෙහි API එකක් තිබේද?', a: 'ඔව්. අපගේ ඉදිරි සැලසුම් අතර දත්ත නාලිකා සහ බුද්ධි ස්ථර සඳහා ක්‍රමලේඛන ප්‍රවේශය ලබා දීම ඇතුළත් වේ.' },
-        { q: "වෙනත් මූල්‍ය මෙවලම් වලින් ඔබ වෙනස් වන්නේ කෙසේද?", a: 'අපි Apple හි වැනි සරල බවක් සමඟ අතිශය සංකීර්ණ අර්ථ විග්‍රහයන් එකට එක් කරමු. අපි PDFs සාරාංශගත කිරීම පමණක් නොව; ව්‍යාපාර අදහස් ව්‍යුහාත්මක දත්ත බවට පරිවර්තනය කරමු.' },
-      ]
+      faqs:[
+            { 
+              q: 'Buyzonlabs දැනටමත් භාවිතයට ගත හැකිද?', 
+              a: 'අපි මූලික data extraction engine එක සාර්ථකව නිම කරලා තියෙනවා. සම්පූර්ණ platform එක දැනට සංවර්ධනය වෙමින් පවතින අතර early access සඳහා ලියාපදිංචි වීම දැන් විවෘතයි.' 
+            },
+            { 
+              q: 'මෙම මෘදුකාංගය වඩාත් සුදුසු වන්නේ කාටද?', 
+              a: 'ඉක්මන් සහ නිවැරදි මුල්‍ය අවබෝධ අවශ්‍ය කරන ආයෝජකයින්, සිසුන් සහ වෘත්තීයවේදීන් සඳහා මෙය නිර්මාණය කර ඇත.' 
+            },
+            { 
+              q: 'මගේ කොටස් වාර්තා(PDF) වලින් මට මොනව කරන්න පුළුවන්?', 
+              a: 'මුල්‍ය වාර්තා upload කරලා වගු උකහා ගන්න, දත්ත විශ්ලේෂණය කරන්න, වැදගත් මිනුම් ගණනය කරන්න සහ පැහැදිලි සාරාංශ ලබාගන්න පුළුවන්.' 
+            },
+            { 
+              q: 'දත්ත export කරන්න පුළුවන්ද?', 
+              a: 'ඔව්. Excel, Word, text සහ developer-friendly ආකෘති වලට ඔබගේ දත්ත පහසුවෙන් අපනයනය කළ හැක.' 
+            },
+            { 
+              q: 'API එකක් ලබාදෙනවද?', 
+              a: 'ඔව්. ඔබගේ systems සහ workflows සමඟ එකතු කරගැනීමට API පහසුකම් ඉදිරියේදී ලබාදීමට අපි සැලසුම් කරලා තියෙනවා.' 
+            },
+            { 
+              q: 'මෙය වෙනත් මෙවලම් වලට වඩා වෙනස් වෙන්නේ කොහොමද?', 
+              a: 'අපි වාර්තා සාරාංශ කිරීම පමණක් නොව, මුල්‍ය දත්ත උකහාගෙන, සකස් කරලා, විශ්ලේෂණය කරමින් ඔබට ක්‍රියාත්මක කළ හැකි අවබෝධ ලබාදෙමු.' 
+            }
+          ]
     }
   };
 
