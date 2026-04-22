@@ -47,6 +47,7 @@ export default function Navbar() {
 
   const content = {
     en: {
+      Hero: 'Home',
       features: 'Features',
       pipeline: 'Pipeline',
       vision: 'Vision',
@@ -54,6 +55,7 @@ export default function Navbar() {
       earlyAccess: 'Early Access'
     },
     si: {
+      Hero: 'මුල් පිටුව',
       features: 'විශේෂාංග',
       pipeline: 'ක්‍රියාවලිය',
       vision: 'දැක්ම',
@@ -72,6 +74,7 @@ export default function Navbar() {
           <span className="hidden sm:inline-block">Buyzonlabs</span>
         </Link>
         <div className="hidden md:flex gap-8 text-sm font-semibold text-gray-500 dark:text-gray-300">
+         <button onClick={() => scrollTo('hero')} className="hover:text-bzl-blue dark:hover:text-white transition-colors">{t.Hero}</button>
           <button onClick={() => scrollTo('features')} className="hover:text-bzl-blue dark:hover:text-white transition-colors">{t.features}</button>
           <button onClick={() => scrollTo('pipeline')} className="hover:text-bzl-blue dark:hover:text-white transition-colors">{t.pipeline}</button>
           <button onClick={() => scrollTo('vision')} className="hover:text-bzl-blue dark:hover:text-white transition-colors">{t.vision}</button>
