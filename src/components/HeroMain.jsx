@@ -1,73 +1,125 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../LanguageContext';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroMain() {
   const containerRef = useRef(null);
   const badgeRef = useRef(null);
   const panelRef = useRef(null);
+  const glowRef = useRef(null);
   const { language } = useLanguage();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      if (containerRef.current) {
-        gsap.fromTo(
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const copyItems = gsap.utils.toArray('.hero-copy-reveal');
+      const panelCards = gsap.utils.toArray('.hero-panel-card');
+
+      if (prefersReducedMotion) {
+        const reducedMotionTargets = [
           containerRef.current,
-          { y: 48, opacity: 0, scale: 0.96 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1.1,
-            ease: 'power3.out',
-          }
+          badgeRef.current,
+          panelRef.current,
+          ...copyItems,
+          ...panelCards,
+        ].filter(Boolean);
+
+        gsap.set(reducedMotionTargets, { clearProps: 'all' });
+        return;
+      }
+
+      if (containerRef.current) {
+        gsap.set(containerRef.current, { opacity: 1 });
+      }
+
+      const intro = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      if (badgeRef.current) {
+        intro.fromTo(
+          badgeRef.current,
+          { y: 18, opacity: 0, scale: 0.97 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.7 },
+          0.05
         );
       }
 
-      if (badgeRef.current) {
-        gsap.fromTo(
-          badgeRef.current,
-          { y: 18, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            delay: 0.15,
-            ease: 'power2.out',
-          }
+      if (copyItems.length) {
+        intro.fromTo(
+          copyItems,
+          { y: 34, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.9, stagger: 0.11 },
+          0.12
         );
       }
 
       if (panelRef.current) {
-        gsap.fromTo(
+        intro.fromTo(
           panelRef.current,
-          { y: 36, opacity: 0 },
+          { x: 34, y: 30, opacity: 0, rotateY: -8 },
+          { x: 0, y: 0, opacity: 1, rotateY: 0, duration: 1.05 },
+          0.28
+        );
+
+        gsap.to(panelRef.current, {
+          y: -12,
+          duration: 4.2,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        });
+      }
+
+      if (panelCards.length) {
+        intro.fromTo(
+          panelCards,
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.72, stagger: 0.12 },
+          0.55
+        );
+      }
+
+      if (glowRef.current) {
+        gsap.fromTo(
+          glowRef.current,
+          { opacity: 0.3, scale: 0.94 },
           {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            delay: 0.25,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: panelRef.current,
-              start: 'top 82%',
-            },
+            opacity: 0.7,
+            scale: 1.08,
+            duration: 3.6,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
           }
         );
       }
-    });
+
+      gsap.to('[data-hero-orb="one"]', {
+        x: 24,
+        y: -18,
+        duration: 7,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
+
+      gsap.to('[data-hero-orb="two"]', {
+        x: -18,
+        y: 20,
+        duration: 8.4,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
+    }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [language]);
 
   const content = {
     en: {
       badge: 'STOCK MARKET INTELLIGENCE',
       subtitle: 'Software for smarter investing and sharper business decisions',
-      brand:'BUYZONLABS',
+      brand: 'BUYZONLABS',
       title: 'We build financial research software that helps investors move with clarity.',
       desc:
         'Buyzonlabs creates market-focused software for investors, analysts, and business leaders who need structured insights, faster research workflows, and better decision support.',
@@ -77,20 +129,28 @@ export default function HeroMain() {
       statOneValue: 'Investors & Businesses',
       statTwoLabel: 'Focused on',
       statTwoValue: 'Research, Signals & Strategy',
+      panelTitle: 'Market Intelligence',
+      panelStatus: 'Live Vision',
+      missionLabel: 'Core Mission',
+      missionText: 'Structured tools for research, confidence, and execution.',
     },
     si: {
-      badge: 'කොටස් වෙළඳපොළ බුද්ධිමය විසඳුම්',
-      subtitle: 'වඩා හොඳ ආයෝජන සහ ව්‍යාපාරික තීරණ සඳහා මෘදුකාංග',
+      badge: 'කොටස් වෙළඳපොළ බුද්ධි විශ්ලේෂණය',
+      subtitle: 'වඩා හොඳ ආයෝජන සහ තියුණු ව්‍යාපාරික තීරණ සඳහා මෘදුකාංග',
       brand: 'BUYZONLABS',
-      title: 'අපි ආයෝජකයන්ට පැහැදිලි තීරණ ගන්න උපකාරී වන මූල්‍ය පර්යේෂණ මෘදුකාංග නිර්මාණය කරමු.',
+      title: 'අපි ආයෝජකයන්ට පැහැදිලිව ක්‍රියා කළ හැකි මූල්‍ය පර්යේෂණ මෘදුකාංග නිර්මාණය කරමු.',
       desc:
-        'Buyzonlabs විසින් ආයෝජකයන්, විශ්ලේෂකයන් සහ ව්‍යාපාර නායකයන් සඳහා වෙළඳපොළට අදාළ, ව්‍යුහගත දත්ත අවබෝධය, වේගවත් පර්යේෂණ ක්‍රියාවලිය සහ බුද්ධිමත් තීරණ සහාය ලබාදෙන මෘදුකාංග සංවර්ධනය කරයි.',
+        'Buyzonlabs ආයෝජකයන්ට, විශ්ලේෂකයන්ට සහ ව්‍යාපාර නායකයන්ට ව්‍යුහගත අවබෝධයන්, වේගවත් පර්යේෂණ ක්‍රියාවලියක් සහ වඩා හොඳ තීරණ සහාය ලබා දෙන වෙළඳපොළ-කේන්ද්‍රිත මෘදුකාංග නිර්මාණය කරයි.',
       primaryCta: 'දැක්ම බලන්න',
       secondaryCta: 'වේදිකාව බලන්න',
       statOneLabel: 'සඳහා නිර්මාණය කළේ',
-      statOneValue: 'ආයෝජකයන් සහ ව්‍යාපාර',
-      statTwoLabel: 'අවධානය යොමු කළේ',
+      statOneValue: 'ආයෝජකයින් සහ ව්‍යාපාර',
+      statTwoLabel: 'අවධානය',
       statTwoValue: 'පර්යේෂණ, සංඥා සහ උපායමාර්ග',
+      panelTitle: 'වෙළඳපොළ බුද්ධි විශ්ලේෂණය',
+      panelStatus: 'සජීවී දැක්ම',
+      missionLabel: 'ප්‍රධාන අරමුණ',
+      missionText: 'පර්යේෂණය, විශ්වාසය සහ ක්‍රියාත්මක කිරීම සඳහා ව්‍යුහගත මෙවලම්.',
     },
   };
 
@@ -104,6 +164,14 @@ export default function HeroMain() {
       <div className="absolute inset-0 bg-noise-pattern opacity-15 dark:opacity-40" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,229,255,0.16),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(2,14,41,0.08),transparent_32%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(0,229,255,0.22),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_28%)]" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/80 via-white/20 to-transparent dark:from-white/5 dark:via-transparent" />
+      <div
+        data-hero-orb="one"
+        className="pointer-events-none absolute left-[8%] top-20 h-36 w-36 rounded-full bg-[#00E5FF]/12 blur-3xl dark:bg-[#00E5FF]/18"
+      />
+      <div
+        data-hero-orb="two"
+        className="pointer-events-none absolute bottom-16 right-[6%] h-48 w-48 rounded-full bg-bzl-blue/8 blur-3xl dark:bg-white/8"
+      />
 
       <div
         ref={containerRef}
@@ -120,25 +188,25 @@ export default function HeroMain() {
             </span>
           </div>
 
-          <p className="mb-5 font-sans text-sm font-light uppercase tracking-[0.1em] text-bzl-blue/55 dark:text-white/65">
+          <p className="hero-copy-reveal mb-5 font-sans text-sm font-light uppercase tracking-[0.1em] text-bzl-blue/55 dark:text-white/65">
             {t.subtitle}
           </p>
 
-           <h1 className="max-w-4xl font-display text-5xl font-extrabold leading-[1.02] tracking-[-0.045em] text-bzl-blue dark:text-white md:text-8xl lg:text-8xl">
+          <h1 className="hero-copy-reveal max-w-4xl font-display text-5xl font-extrabold leading-[1.02] tracking-[-0.045em] text-bzl-blue dark:text-white md:text-8xl lg:text-8xl">
             {t.brand}
           </h1>
 
-          <h1 className="max-w-4xl font-display text-4xl font-bold leading-[1.02] tracking-[-0.045em] text-bzl-blue dark:text-white md:text-6xl lg:text-7xl">
+          <h1 className="hero-copy-reveal max-w-4xl font-display text-4xl font-bold leading-[1.02] tracking-[-0.045em] text-bzl-blue dark:text-white md:text-6xl lg:text-7xl">
             {t.title}
           </h1>
 
-          <div className="my-8 h-1.5 w-28 rounded-full bg-gradient-to-r from-[#00D5EE] via-bzl-blue/25 to-transparent dark:from-[#00E5FF] dark:via-white/80" />
+          <div className="hero-copy-reveal my-8 h-1.5 w-28 rounded-full bg-gradient-to-r from-[#00D5EE] via-bzl-blue/25 to-transparent dark:from-[#00E5FF] dark:via-white/80" />
 
-          <p className="max-w-2xl font-sans text-lg font-light leading-relaxed text-slate-600 dark:text-slate-200 md:text-xl">
+          <p className="hero-copy-reveal max-w-2xl font-sans text-lg font-light leading-relaxed text-slate-600 dark:text-slate-200 md:text-xl">
             {t.desc}
           </p>
 
-        {/*  <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          {/* <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href="#vision"
               className="inline-flex items-center justify-center rounded-full bg-[#00E5FF] px-7 py-3.5 text-sm font-bold text-[#02152D] transition-transform duration-300 hover:-translate-y-0.5"
@@ -154,40 +222,40 @@ export default function HeroMain() {
           </div> */}
         </div>
 
-        <div ref={panelRef} className="relative">
-          <div className="absolute -inset-4 rounded-[2rem] bg-[#00E5FF]/10 blur-2xl" />
+        <div ref={panelRef} className="relative will-change-transform" style={{ transformPerspective: 1200 }}>
+          <div ref={glowRef} className="absolute -inset-4 rounded-[2rem] bg-[#00E5FF]/10 blur-2xl" />
           <div className="relative overflow-hidden rounded-[2rem] border border-bzl-blue/10 bg-white/72 p-6 shadow-[0_24px_80px_rgba(2,14,41,0.12)] backdrop-blur-md dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(0,0,0,0.28)] md:p-7">
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex items-center justify-between gap-4">
               <div>
                 <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-[#00BFD8] dark:text-[#00E5FF]">
                   Buyzonlabs
                 </p>
-                <p className="mt-2 font-display text-2xl font-light text-bzl-blue dark:text-white">
-                  Market Intelligence
+                <p className="mt-2 max-w-[14rem] font-display text-2xl font-light leading-tight text-bzl-blue dark:text-white">
+                  {t.panelTitle}
                 </p>
               </div>
               <div className="rounded-full border border-[#00BFD8]/20 bg-[#00E5FF]/10 px-3 py-1 text-xs font-semibold text-[#007C91] dark:border-[#00E5FF]/35 dark:text-[#7BEFFF]">
-                Live Vision
+                {t.panelStatus}
               </div>
             </div>
 
             <div className="space-y-4">
-              <div className="rounded-2xl border border-bzl-blue/8 bg-[#edf3fb] p-5 dark:border-white/8 dark:bg-[#03142F]/85">
+              <div className="hero-panel-card rounded-2xl border border-bzl-blue/8 bg-[#edf3fb] p-5 dark:border-white/8 dark:bg-[#03142F]/85">
                 <p className="font-sans text-sm text-bzl-blue/45 dark:text-white/55">{t.statOneLabel}</p>
                 <p className="mt-2 font-display text-xl font-light text-bzl-blue dark:text-white">{t.statOneValue}</p>
               </div>
 
-              <div className="rounded-2xl border border-bzl-blue/8 bg-white/85 p-5 dark:border-white/8 dark:bg-white/5">
+              <div className="hero-panel-card rounded-2xl border border-bzl-blue/8 bg-white/85 p-5 dark:border-white/8 dark:bg-white/5">
                 <p className="font-sans text-sm text-bzl-blue/45 dark:text-white/55">{t.statTwoLabel}</p>
                 <p className="mt-2 font-display text-xl font-light text-bzl-blue dark:text-white">{t.statTwoValue}</p>
               </div>
 
-              <div className="rounded-2xl border border-bzl-blue/8 bg-gradient-to-r from-[#00E5FF]/14 to-white/70 p-5 dark:border-white/8 dark:to-white/6">
+              <div className="hero-panel-card rounded-2xl border border-bzl-blue/8 bg-gradient-to-r from-[#00E5FF]/14 to-white/70 p-5 dark:border-white/8 dark:to-white/6">
                 <div className="flex items-end justify-between gap-4">
                   <div>
-                    <p className="font-sans text-sm text-bzl-blue/50 dark:text-white/60">Core Mission</p>
+                    <p className="font-sans text-sm text-bzl-blue/50 dark:text-white/60">{t.missionLabel}</p>
                     <p className="mt-2 font-display text-lg font-light text-bzl-blue dark:text-white">
-                      Structured tools for research, confidence, and execution.
+                      {t.missionText}
                     </p>
                   </div>
                   <div className="flex gap-2">
