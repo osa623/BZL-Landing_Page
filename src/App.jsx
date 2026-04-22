@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+//import Hero from './components/Hero';
+import Heromain from './components/HeroMain';
 import Problem from './components/Problem';
 import Stats from './components/Stats';
 import Purpose from './components/Purpose';
@@ -17,7 +18,7 @@ import { LanguageProvider } from './LanguageContext';
 function LandingPage() {
   return (
     <main>
-      <Hero />
+      <Heromain />
       <Problem />
       <Stats />
       <Purpose />

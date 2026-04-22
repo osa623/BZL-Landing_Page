@@ -60,14 +60,25 @@ export default function Pipeline() {
       desc: 'See how the architecture of Buyzonlabs is being engineered from the ground up to revolutionize market intelligence.',
       locked: 'Locked',
       stages: [
-        {
+        /*{
           id: 1,
           title: 'Financial Report Extraction & Analysing Engine',
           description: 'The foundation is built. Complex 10-Ks and SEC filings are rapidly ingested and parsed with extreme precision.',
           status: 'Launching Soon',
           blur: false,
           icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
+        },*/
+        
+        {
+          id: 1,
+          title: 'PDF Data Extraction & Company Analysis Engine',
+          description: 'Extracts financial data from reports and generates full company analysis with key metrics, ratios, valuations, and AI insights.',
+          status: 'Launching Soon',
+          blur: false,
+          icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
         },
+
+        
         {
           id: 2,
           title: 'AI Financial Analysis Core',
@@ -104,19 +115,31 @@ export default function Pipeline() {
     },
     si: {
       roadmap: 'ඉදිරි දැක්ම',
-      title: <>මූල්‍යයේ අනාගතය.<br className="hidden md:block"/> අදියර වශයෙන් දිගහැරේ.</>,
+      title: <>අනාගත මූල්‍ය ලෝකය.<br className="hidden md:block"/> අදියර වශයෙන් දිගහැරේ.</>,
       desc: 'වෙළෙඳපොළ බුද්ධිය විප්ලවීය කිරීම සඳහා Buyzonlabs හි ගෘහ නිර්මාණ ශිල්පය ගොඩනැගෙමින් පවතින ආකාරය බලන්න.',
       locked: 'අගුලු දමා ඇත',
       stages: [
-        {
+        /*{
           id: 1,
           title: 'මූල්‍ය වාර්තා උකහා ගැනීමේ සහ විශ්ලේෂණය කිරීමේ යන්ත්‍රය',
           description: 'පදනම ගොඩනගා ඇත. සංකීර්ණ 10-Ks සහ SEC තැන්පතු අතිශය නිරවද්‍යතාවයෙන් ඉක්මනින් විශ්ලේෂණය කෙරේ.',
           status: 'ළඟදීම දියත් කෙරේ',
           blur: false,
           icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
+        },*/
+       
+
+
+         {
+          id: 1,
+          title: 'PDF දත්ත උපුටාගැනීම සහ සමාගම් විශ්ලේෂණ එන්ජිම',
+          description: 'වාර්තා වලින් මූල්‍ය දත්ත උපුටාගෙන, ප්‍රධාන මිනුම්, අනුපාත, වටිනාකම් හා AI විග්‍රහයන් සමඟ සම්පූර්ණ සමාගම් විශ්ලේෂණයක් ලබාදෙයි.',
+          status: 'ළඟදීම දියත් කෙරේ',
+          blur: false,
+          icon: <Sparkles className="w-6 h-6 text-bzl-gold ml-0.5" />
         },
-        {
+        
+         {
           id: 2,
           title: 'AI මූල්‍ය විශ්ලේෂණ හරය',
           description: 'උසස් ගැඹුරු ඉගෙනුම් ආකෘති මගින් අමු දත්ත ක්‍රියාකාරී දිගුකාලීන පුරෝකථනයන් බවට පත් කරයි.',
@@ -124,6 +147,8 @@ export default function Pipeline() {
           blur: true,
           icon: <Code2 className="w-6 h-6" />
         },
+
+
         {
           id: 3,
           title: 'ආයෝජක අවබෝධය සඳහා උපකරණ පුවරුව',

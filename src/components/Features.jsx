@@ -37,40 +37,40 @@ export default function Features() {
       features: [
         {
           id: '01',
-          title: 'Semantic Intelligence',
-          desc: 'Understand market reports the way leading experts do. Not just keyword searching.',
+          title: 'Smart Data Extraction',
+          desc: 'Pull tables, numbers, and financial insights directly from PDFs in seconds.',
           icon: <BrainCircuit size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '02',
-          title: 'Automated Workflows',
-          desc: 'Map out complex business ideas and convert them into executed data strategies.',
+          title: 'Flexible Export Options',
+          desc: 'Export your data in multiple formats — ready for analysis, sharing, or development.',
           icon: <Workflow size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '03',
-          title: 'Actionable Forecasting',
-          desc: 'Unearth trends and potential trajectories visually with generated dashboards.',
+          title: 'AI-Driven Analysis',
+          desc: 'Transform raw reports into meaningful insights powered by intelligent analysis.',
           icon: <LineChart size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '04',
-          title: 'Precision Extraction',
-          desc: 'Pull exact figures, sentiments, and notes from long-form PDFs easily.',
+          title: 'Advanced Financial Metrics',
+          desc: 'Access key ratios and valuation models without manual calculations.',
           icon: <Target size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '05',
-          title: 'Structured Databases',
-          desc: 'Every insight is formatted, categorized, and ready to export or query.',
+          title: 'Clear, Actionable Summaries',
+          desc: 'Understand company performance quickly with concise AI-generated summaries.',
           icon: <Database size={24} className="text-gray-900 dark:text-white" />
         },
-        {
+        /*{
           id: '06',
           title: 'Reliable Architectures',
           desc: 'Built on rigorous and highly verified financial algorithms assuring zero hallucination.',
           icon: <ShieldCheck size={24} className="text-gray-900 dark:text-white" />
-        },
+        },*/
       ]
     },
     si: {
@@ -80,40 +80,40 @@ export default function Features() {
       features: [
         {
           id: '01',
-          title: 'අර්ථකථන බුද්ධිය',
-          desc: 'ප්‍රමුඛ පෙළේ විශේෂඥයින් කරන ආකාරයට වෙළඳපල වාර්තා තේරුම් ගන්න. මූල පද සෙවීම පමණක් නොවේ.',
+          title: 'දත්ත උකහා ගැනීම',
+          desc: 'PDF වාර්තා වලින් වගු, සංඛ්‍යා සහ මුල්‍ය දත්ත තත්පර කිහිපයකින් ලබා ගන්න.',
           icon: <BrainCircuit size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '02',
-          title: 'ස්වයංක්‍රීය කාර්ය ප්‍රවාහයන්',
-          desc: 'සංකීර්ණ ව්‍යාපාර අදහස් සැලසුම් කර ඒවා ක්‍රියාත්මක කරන දත්ත උපාය මාර්ග බවට පරිවර්තනය කරන්න.',
+          title: 'බහු ආකෘති අපනයන',
+          desc: 'ඔබගේ දත්ත Word, Excel, Text සහ වෙනත් ආකෘති වලින් පහසුවෙන් අපනයනය කරන්න.',
           icon: <Workflow size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '03',
-          title: 'ක්‍රියාකාරී පුරෝකථනය',
-          desc: 'උත්පාදනය කරන ලද උපකරණ පුවරු සමඟ ප්‍රවණතා සහ අනාගත මාර්ග දෘශ්‍යමය ලෙස සොයා ගන්න.',
+          title: 'කෘතිම බුද්ධි විශ්ලේෂණ',
+          desc: 'වාර්තා පැහැදිලි අවබෝධයක් සහිත දත්ත බවට පත් කරයි.',
           icon: <LineChart size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '04',
-          title: 'නිරවද්‍ය උකහා ගැනීම',
-          desc: 'දීර්ඝ PDF වලින් නිශ්චිත සංඛ්‍යා, හැඟීම්, සහ සටහන් පහසුවෙන් ලබා ගන්න.',
+          title: 'උසස් මුල්‍ය මිනුම්',
+          desc: 'අතින් ගණනය නොකරම වැදගත් අනුපාත සහ වටිනාකම් ලැබ ගන්න..',
           icon: <Target size={24} className="text-gray-900 dark:text-white" />
         },
         {
           id: '05',
-          title: 'ව්‍යුහගත දත්ත සමුදායන්',
-          desc: 'සෑම අවබෝධයක්ම හැඩතල ගන්වා, වර්ගීකරණය කර ඇති අතර අපනයනය කිරීමට හෝ සෙවීමට සූදානම්ය.',
+          title: 'පැහැදිලි සහ ක්‍රියාත්මක කළ හැකි සාරාංශ',
+          desc: 'AI මඟින් සරලව සකස් කරන ලද සාරාංශ වලින් සමාගම් කාර්ය සාධනය ඉක්මනින් අවබෝධ කරගන්න.',
           icon: <Database size={24} className="text-gray-900 dark:text-white" />
         },
-        {
+        /*{
           id: '06',
           title: 'විශ්වාසදායක ගෘහ නිර්මාණ',
           desc: 'දෝෂ නොමැති බව සහතික කරන දැඩි සහ ඉහළින් තහවුරු කරන ලද මූල්‍ය ඇල්ගොරිතම මත ගොඩනගා ඇත.',
           icon: <ShieldCheck size={24} className="text-gray-900 dark:text-white" />
-        },
+        },*/
       ]
     }
   };
