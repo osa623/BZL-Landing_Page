@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { useLanguage } from '../LanguageContext';
@@ -8,6 +8,7 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const { language } = useLanguage();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -66,7 +67,13 @@ export default function Navbar() {
     requestAnimationFrame(() => scrollToSection(pendingTarget));
   }, [location.pathname]);
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const scrollTo = (id) => {
+    setIsMobileMenuOpen(false);
+
     if (location.pathname !== '/') {
       sessionStorage.setItem('pendingScrollTarget', id);
       navigate('/');
@@ -105,6 +112,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between">
         <Link
           to="/"
+          onClick={() => setIsMobileMenuOpen(false)}
           className="flex items-center gap-2.5 text-xl font-extrabold tracking-tight text-bzl-blue transition-transform hover:scale-105 dark:text-white md:text-2xl"
         >
           <img
@@ -148,15 +156,77 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex items-center gap-3 md:gap-5">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-5">
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMobileMenuOpen}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-bzl-blue transition-colors hover:bg-gray-100 dark:border-white/20 dark:text-white dark:hover:bg-white/10 md:hidden"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {isMobileMenuOpen ? (
+                <path d="M18 6 6 18M6 6l12 12" />
+              ) : (
+                <path d="M3 6h18M3 12h18M3 18h18" />
+              )}
+            </svg>
+          </button>
+
           <Link
             to="/early-access"
+            onClick={() => setIsMobileMenuOpen(false)}
             className="flex items-center justify-center rounded-full bg-bzl-blue px-4 py-2 text-xs font-bold text-white shadow-md transition-opacity hover:opacity-90 dark:bg-white dark:text-bzl-blue md:px-5 md:py-2.5 md:text-sm"
           >
             {t.earlyAccess}
           </Link>
         </div>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className="mx-auto mt-4 max-w-6xl rounded-2xl border border-gray-200 bg-white/95 p-3 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-[#020e29]/95 md:hidden">
+          <div className="grid gap-1 text-sm font-semibold text-gray-700 dark:text-gray-200">
+            <button
+              onClick={() => scrollTo('hero')}
+              className="rounded-xl px-3 py-2 text-left transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
+            >
+              {t.hero}
+            </button>
+            <button
+              onClick={() => scrollTo('features')}
+              className="rounded-xl px-3 py-2 text-left transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
+            >
+              {t.features}
+            </button>
+            <button
+              onClick={() => scrollTo('pipeline')}
+              className="rounded-xl px-3 py-2 text-left transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
+            >
+              {t.pipeline}
+            </button>
+            <button
+              onClick={() => scrollTo('vision')}
+              className="rounded-xl px-3 py-2 text-left transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
+            >
+              {t.vision}
+            </button>
+            <button
+              onClick={() => scrollTo('faq')}
+              className="rounded-xl px-3 py-2 text-left transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
+            >
+              {t.faq}
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

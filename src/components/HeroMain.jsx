@@ -297,7 +297,7 @@ export default function HeroMain() {
         </div> 
 
         {/* ───────── RIGHT — CARD AREA ───────── */}
-        <div className="relative flex items-center justify-center pb-10 sm:pb-12 lg:pb-0">
+        <div className="relative flex items-center justify-center pb-10 p-4 sm:pb-12 lg:pb-0">
 
           {/* Mobile-only: dark background behind card */}
           <div className="lg:hidden absolute inset-x-0 -inset-y-4 bg-[#041a4a] dark:bg-[#081629] rounded-3xl pointer-events-none" />
@@ -306,12 +306,12 @@ export default function HeroMain() {
           <div className="lg:hidden absolute top-2 right-3 opacity-40 pointer-events-none">
             <DotGrid cols={5} rows={4} />
           </div>
-          <div className="lg:hidden absolute -top-1 right-2 w-10 h-10 rounded-full bg-[#F2C94C]/70 pointer-events-none" />
+          <div className="lg:hidden absolute scale-90 -top-1 right-2 w-10 h-10 rounded-full bg-[#F2C94C]/70 pointer-events-none" />
 
           {/* ── MAIN INTELLIGENCE CARD ── */}
           <div
             ref={panelRef}
-            className="relative z-20 w-full sm:max-w-[440px] lg:max-w-none xl:max-w-[560px] bg-white dark:bg-[#0f1f3a] rounded-3xl p-5 sm:p-7 shadow-[0_30px_80px_rgba(4,26,74,0.28)] dark:shadow-[0_30px_80px_rgba(0,0,0,0.55)] border border-white/80 dark:border-white/5 mt-6 lg:mt-0"
+            className="relative z-20 w-full sm:max-w-[300px] lg:max-w-none xl:max-w-[560px] bg-white dark:bg-[#0f1f3a] rounded-3xl p-5 sm:p-12 shadow-[0_30px_80px_rgba(4,26,74,0.28)] dark:shadow-[0_30px_80px_rgba(0,0,0,0.55)] border border-white/80 dark:border-white/5 mt-6 lg:mt-0"
           >
             {/* Card header */}
             <div className="flex items-start justify-between mb-5 sm:mb-6">
